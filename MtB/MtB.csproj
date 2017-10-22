@@ -7,6 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Emailing\CommunicationModule.cs" />
+    <Compile Remove="Emailing\ContactFactory.cs" />
+    <Compile Remove="Emailing\SendEmailCapability.cs" />
+    <Compile Remove="EmailModule.cs" />
+    <Compile Remove="IBuildContact.cs" />
+    <Compile Remove="ICapability.cs" />
+    <Compile Remove="ITransmitNotification.cs" />
+    <Compile Remove="NewTaskSchedulerDouble.cs" />
+    <Compile Remove="SendSmsCapability.cs" />
+    <Compile Remove="SmsContactFactory.cs" />
+    <Compile Remove="SmsModule.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Hangfire" Version="1.6.17" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0-preview-20170628-02" />
     <PackageReference Include="Moq" Version="4.7.142" />
