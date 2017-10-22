@@ -1,6 +1,7 @@
-using System;
+using MtB.Communication;
+using MtB.EmailComponents;
 
-namespace MtB.EmailComponents
+namespace MtB.Plugins
 {
     public interface ITransmitEmail
     {

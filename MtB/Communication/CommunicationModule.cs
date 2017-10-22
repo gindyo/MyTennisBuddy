@@ -28,7 +28,7 @@ namespace MtB.Communication
         private EmailContactList EmailContactList  => _userContactsListFactory.GetContactListFor(new ReceiveEmail());
         private SmsContactList SmsContactList  => _userContactsListFactory.GetContactListFor(new ReceiveSmsCapability());
 
-        internal void SendEmailTo(List<Guid> list, Email email)
+        public void SendEmailTo(List<Guid> list, Email email)
         {
             var emailContacts = EmailContactList
                 .Get(list)
@@ -47,7 +47,7 @@ namespace MtB.Communication
                 SmsContactList.Get(receiverId).Receive(sms);
         }
 
-        internal void SendSmsTo(IEnumerable<Guid> list, Sms sms)
+        public void SendSmsTo(IEnumerable<Guid> list, Sms sms)
         {
             var emailContacts = SmsContactList
                 .Get(list)

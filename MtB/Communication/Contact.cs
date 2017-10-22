@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
-using MtB.Communication;
 
-namespace MtB
+namespace MtB.Communication
 {
     public class Contact
     {

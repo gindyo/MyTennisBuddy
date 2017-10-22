@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using MtB.Communication;
+using MtB.Plugins;
 
 namespace MtB.SmsComponents
 {

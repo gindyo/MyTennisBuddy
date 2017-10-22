@@ -1,3 +1,6 @@
+using MtB.Communication;
+using MtB.Plugins;
+
 namespace MtB.EmailComponents
 {
     public class EmailContactFactory

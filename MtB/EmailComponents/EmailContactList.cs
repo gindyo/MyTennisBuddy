@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using MtB.Communication;
 
 namespace MtB.EmailComponents
 {

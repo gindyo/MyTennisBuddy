@@ -1,3 +1,4 @@
+using MtB.Communication;
 using MtB.EmailComponents;
 
 namespace MtB

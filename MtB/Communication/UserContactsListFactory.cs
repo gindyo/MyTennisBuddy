@@ -6,12 +6,12 @@ namespace MtB.Communication
 {
     public class UserContactsListFactory
     {
-        private readonly ContactListProvider _contactListProvider;
+        private readonly IContactListProvider _contactListProvider;
         private readonly EmailContactFactory _emailContactFactory;
         private readonly SmsContactFactory _smsContactFactory;
         private readonly Guid _userId;
 
-        public UserContactsListFactory(ContactListProvider contactListProvider, EmailContactFactory emailContactFactory, SmsContactFactory smsContactFactory, Guid userId)
+        public UserContactsListFactory(IContactListProvider contactListProvider, EmailContactFactory emailContactFactory, SmsContactFactory smsContactFactory, Guid userId)
         {
             _contactListProvider = contactListProvider;
             _emailContactFactory = emailContactFactory;

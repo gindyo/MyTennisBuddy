@@ -1,5 +1,7 @@
 ﻿using System;
+using MtB.Communication;
 using MtB.EmailComponents;
+using MtB.Plugins;
 
 namespace MtB.SmsComponents
 {

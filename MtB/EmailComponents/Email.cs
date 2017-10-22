@@ -1,3 +1,5 @@
+using MtB.Communication;
+
 namespace MtB.EmailComponents
 {
     public interface ITransmitNotification
