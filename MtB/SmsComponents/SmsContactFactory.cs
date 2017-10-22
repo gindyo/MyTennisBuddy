@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
-using MtB.Communication;
+using MtB.Entities;
+using MtB.Infrastructure;
 using MtB.Plugins;
 
 namespace MtB.SmsComponents

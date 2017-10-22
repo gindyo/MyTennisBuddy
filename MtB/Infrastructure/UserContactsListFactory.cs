@@ -1,19 +1,20 @@
 using System;
 using MtB.EmailComponents;
+using MtB.Plugins;
 using MtB.SmsComponents;
 
-namespace MtB.Communication
+namespace MtB.Infrastructure
 {
     public class UserContactsListFactory
     {
-        private readonly IContactListProvider _contactListProvider;
+        private readonly IProvideContacts _provideContacts;
         private readonly EmailContactFactory _emailContactFactory;
         private readonly SmsContactFactory _smsContactFactory;
         private readonly Guid _userId;
 
-        public UserContactsListFactory(IContactListProvider contactListProvider, EmailContactFactory emailContactFactory, SmsContactFactory smsContactFactory, Guid userId)
+        public UserContactsListFactory(IProvideContacts provideContacts, EmailContactFactory emailContactFactory, SmsContactFactory smsContactFactory, Guid userId)
         {
-            _contactListProvider = contactListProvider;
+            _provideContacts = provideContacts;
             _emailContactFactory = emailContactFactory;
             _smsContactFactory = smsContactFactory;
             _userId = userId;
@@ -21,12 +22,12 @@ namespace MtB.Communication
 
         public SmsContactList GetContactListFor(ReceiveSmsCapability receiveSmsCapability)
         {
-            var contacs = _contactListProvider.GetAll(_userId);
+            var contacs = _provideContacts.GetAll(_userId);
             return new SmsContactList(contacs,_smsContactFactory);
         }
-        public EmailContactList GetContactListFor(ReceiveEmail sms)
+        public EmailContactList GetContactListFor(ReceiveEmailCapability sms)
         {
-            var contacs = _contactListProvider.GetAll(_userId);
+            var contacs = _provideContacts.GetAll(_userId);
             return new EmailContactList(contacs,_emailContactFactory);
 
         }

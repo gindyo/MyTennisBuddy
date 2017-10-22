@@ -2,9 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MtB.EmailComponents;
+using MtB.Plugins;
 using MtB.SmsComponents;
 
-namespace MtB.Communication
+namespace MtB.Infrastructure
 {
     public class CommunicationModule
     {
@@ -25,7 +26,7 @@ namespace MtB.Communication
             emailContact.ReceiveEmail(email);
         }
 
-        private EmailContactList EmailContactList  => _userContactsListFactory.GetContactListFor(new ReceiveEmail());
+        private EmailContactList EmailContactList  => _userContactsListFactory.GetContactListFor(new ReceiveEmailCapability());
         private SmsContactList SmsContactList  => _userContactsListFactory.GetContactListFor(new ReceiveSmsCapability());
 
         public void SendEmailTo(List<Guid> list, Email email)

@@ -1,5 +1,6 @@
-using MtB.Communication;
 using MtB.EmailComponents;
+using MtB.Entities;
+using MtB.Infrastructure;
 
 namespace MtB.Plugins
 {

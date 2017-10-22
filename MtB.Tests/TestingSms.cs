@@ -2,8 +2,9 @@ using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using MtB.Communication;
 using MtB.EmailComponents;
+using MtB.Entities;
+using MtB.Infrastructure;
 using MtB.Plugins;
 using MtB.SmsComponents;
 using MtB.Tests.TestDoubles;
@@ -19,14 +20,14 @@ namespace MtB.Tests
             var receiverId = Guid.NewGuid();
             var contact = new Contact() { ExternalId = receiverId };
             var sms = new Sms("hello");
-            contact.ComunicationCapabilities.Add(new ReceiveEmail());
+            contact.ComunicationCapabilities.Add(new ReceiveEmailCapability());
             var messageTarnsmitter = new Mock<ITransmitSms>();
             messageTarnsmitter.Setup(t => t.Transmit(contact, sms)).Verifiable();
 
             var userId = new Guid();
             var smsContactFactory = new SmsContactFactory(messageTarnsmitter.Object);
             var emaContactFactory = new EmailContactFactory(null);
-            var contactListProvider = new ContactListProviderDouble(new[] { contact }.AsQueryable());
+            var contactListProvider = new ProvideContactsDouble(new[] { contact }.AsQueryable());
             var userContactsListFactory = new UserContactsListFactory(contactListProvider, emaContactFactory, smsContactFactory, userId);
             var applicationInstance = new CommunicationModule(userContactsListFactory, null, userId);
             var app = applicationInstance;
@@ -46,13 +47,13 @@ namespace MtB.Tests
             var contact2 = new Contact() { ExternalId = receiverId2 };
             contact2.ComunicationCapabilities.Add(new ReceiveSmsCapability());
             var sms = new Sms("hello");
-            contact.ComunicationCapabilities.Add(new ReceiveEmail());
+            contact.ComunicationCapabilities.Add(new ReceiveEmailCapability());
             var messageTarnsmitter = new Mock<ITransmitSms>();
             messageTarnsmitter.Setup(t => t.Transmit(contact, sms)).Verifiable();
 
             var userId = new Guid();
             var smsContactFactory = new SmsContactFactory(messageTarnsmitter.Object);
-            var contactListProvider = new ContactListProviderDouble(new[] { contact }.AsQueryable());
+            var contactListProvider = new ProvideContactsDouble(new[] { contact }.AsQueryable());
             var userContactsListFactory = new UserContactsListFactory(contactListProvider, null, smsContactFactory, userId);
             var applicationInstance = new CommunicationModule(userContactsListFactory, new TaskSchedulerDouble(), userId);
             var app = applicationInstance;

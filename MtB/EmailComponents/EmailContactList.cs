@@ -1,7 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MtB.Communication;
+using MtB.Entities;
+using MtB.Infrastructure;
 
 namespace MtB.EmailComponents
 {
@@ -12,7 +13,7 @@ namespace MtB.EmailComponents
         public EmailContactList(IQueryable<Contact> contacs, EmailContactFactory emailContactFactory)
         {
             _emailContactFactory = emailContactFactory;
-            Contacts = contacs.Where(c => c.ComunicationCapabilities.Any(cap=> cap is  ReceiveEmail));
+            Contacts = contacs.Where(c => c.ComunicationCapabilities.Any(cap=> cap is  ReceiveEmailCapability));
         }
         private IQueryable<Contact> Contacts { get;  }
         public EmailContact Get(Guid receiverId)

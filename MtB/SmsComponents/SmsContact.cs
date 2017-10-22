@@ -1,6 +1,7 @@
 ﻿using System;
-using MtB.Communication;
 using MtB.EmailComponents;
+using MtB.Entities;
+using MtB.Infrastructure;
 using MtB.Plugins;
 
 namespace MtB.SmsComponents

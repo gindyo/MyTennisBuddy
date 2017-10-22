@@ -1,15 +1,17 @@
 using System;
 using System.Linq;
 using Moq;
-using MtB.Communication;
+using MtB.Entities;
+using MtB.Infrastructure;
+using MtB.Plugins;
 
 namespace MtB.Tests.TestDoubles
 {
-    public class ContactListProviderDouble : Mock<IContactListProvider>, IContactListProvider
+    public class ProvideContactsDouble : Mock<IProvideContacts>, IProvideContacts
     {
         private IQueryable<Contact> _list;
 
-        public ContactListProviderDouble(IQueryable<Contact> list)
+        public ProvideContactsDouble(IQueryable<Contact> list)
         {
             _list = list;
         }

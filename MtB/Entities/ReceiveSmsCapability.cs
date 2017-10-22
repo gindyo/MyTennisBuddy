@@ -1,4 +1,4 @@
-using MtB.Communication;
+using MtB.Infrastructure;
 
 namespace MtB.SmsComponents
 {
