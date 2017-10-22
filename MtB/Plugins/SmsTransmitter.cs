@@ -1,5 +1,4 @@
 ﻿using MtB.Entities;
-using MtB.Infrastructure;
 using MtB.SmsComponents;
 
 namespace MtB.Plugins

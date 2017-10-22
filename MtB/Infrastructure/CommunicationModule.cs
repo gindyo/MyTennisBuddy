@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MtB.EmailComponents;
+using MtB.Entities;
 using MtB.Plugins;
 using MtB.SmsComponents;
 
@@ -9,25 +10,28 @@ namespace MtB.Infrastructure
 {
     public class CommunicationModule
     {
-        private readonly UserContactsListFactory _userContactsListFactory;
         private readonly IScheduleTask _scheduleTask;
+        private readonly UserContactsListFactory _userContactsListFactory;
         private readonly Guid _userId;
 
-        public CommunicationModule(UserContactsListFactory userContactsListFactory, IScheduleTask scheduleScheduleTask, Guid userId)
+        public CommunicationModule(UserContactsListFactory userContactsListFactory, IScheduleTask scheduleScheduleTask,
+            Guid userId)
         {
             _userContactsListFactory = userContactsListFactory;
             _scheduleTask = scheduleScheduleTask;
             _userId = userId;
         }
 
+        private EmailContactList EmailContactList =>
+            _userContactsListFactory.GetContactListFor(new ReceiveEmailCapability());
+
+        private SmsContactList SmsContactList => _userContactsListFactory.GetContactListFor(new ReceiveSmsCapability());
+
         public void SendEmailTo(Guid receiver, Email email)
         {
             var emailContact = EmailContactList.Get(receiver);
             emailContact.ReceiveEmail(email);
         }
-
-        private EmailContactList EmailContactList  => _userContactsListFactory.GetContactListFor(new ReceiveEmailCapability());
-        private SmsContactList SmsContactList  => _userContactsListFactory.GetContactListFor(new ReceiveSmsCapability());
 
         public void SendEmailTo(List<Guid> list, Email email)
         {
@@ -45,7 +49,7 @@ namespace MtB.Infrastructure
 
         public void SendSmsTo(Guid receiverId, Sms sms)
         {
-                SmsContactList.Get(receiverId).Receive(sms);
+            SmsContactList.Get(receiverId).Receive(sms);
         }
 
         public void SendSmsTo(IEnumerable<Guid> list, Sms sms)

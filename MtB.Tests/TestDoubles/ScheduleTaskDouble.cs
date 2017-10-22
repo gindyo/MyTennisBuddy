@@ -5,7 +5,6 @@ namespace MtB.Tests.TestDoubles
 {
     public class ScheduleTask : IScheduleTask
     {
-
         private Action _task = () => { };
         private DateTime _time = DateTime.Now;
 

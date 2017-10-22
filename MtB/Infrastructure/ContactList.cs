@@ -5,7 +5,7 @@ using MtB.Entities;
 
 namespace MtB.Infrastructure
 {
-    public  class ContactList 
+    public class ContactList
     {
         protected IQueryable<Contact> Contacts;
 
@@ -13,9 +13,10 @@ namespace MtB.Infrastructure
         {
             return Contacts.FirstOrDefault(c => c.ExternalId == receiverId);
         }
-        public  virtual IEnumerable<Contact> Get(List<Guid> receiverIds)
+
+        public virtual IEnumerable<Contact> Get(List<Guid> receiverIds)
         {
-            return  Contacts.Where(c=> receiverIds.Contains(c.ExternalId)).AsEnumerable();
+            return Contacts.Where(c => receiverIds.Contains(c.ExternalId)).AsEnumerable();
         }
     }
 }

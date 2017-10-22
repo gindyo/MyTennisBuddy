@@ -1,6 +1,4 @@
-using MtB.Infrastructure;
-
-namespace MtB.SmsComponents
+namespace MtB.Entities
 {
     public struct ReceiveSmsCapability : ICapability
     {

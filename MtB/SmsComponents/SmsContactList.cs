@@ -2,11 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using MtB.Entities;
-using MtB.Infrastructure;
 
 namespace MtB.SmsComponents
 {
-    public  class SmsContactList
+    public class SmsContactList
     {
         private readonly IQueryable<Contact> _contacts;
         private readonly SmsContactFactory _smsContactFactory;
@@ -26,7 +25,7 @@ namespace MtB.SmsComponents
 
         public SmsContact Get(Guid receiverId)
         {
-            var smsContact = _contacts.FirstOrDefault(c=> c.ExternalId == receiverId);
+            var smsContact = _contacts.FirstOrDefault(c => c.ExternalId == receiverId);
             return _smsContactFactory.Build(smsContact);
         }
     }

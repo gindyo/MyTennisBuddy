@@ -1,15 +1,13 @@
 ﻿using System;
-using MtB.EmailComponents;
 using MtB.Entities;
-using MtB.Infrastructure;
 using MtB.Plugins;
 
 namespace MtB.SmsComponents
 {
     public class SmsContact
     {
-        private Contact _contact;
         private readonly ITransmitSms _smsTransmitterObject;
+        private readonly Contact _contact;
 
         public SmsContact(Contact contact, ITransmitSms smsTransmitter)
         {
@@ -19,6 +17,10 @@ namespace MtB.SmsComponents
 
         public Guid ExternalId => _contact.ExternalId;
         public int SequenceNum => _contact.SequnceNum;
-        public void Receive(Sms sms) => _smsTransmitterObject.Transmit(_contact, sms);
+
+        public void Receive(Sms sms)
+        {
+            _smsTransmitterObject.Transmit(_contact, sms);
+        }
     }
 }

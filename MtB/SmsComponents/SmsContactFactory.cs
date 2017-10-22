@@ -1,12 +1,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using MtB.Entities;
-using MtB.Infrastructure;
 using MtB.Plugins;
 
 namespace MtB.SmsComponents
 {
-    public class SmsContactFactory 
+    public class SmsContactFactory
     {
         private readonly ITransmitSms _messageTarnsmitterObject;
 
@@ -18,14 +17,14 @@ namespace MtB.SmsComponents
         public IEnumerable<SmsContact> Build(IQueryable<Contact> contacts)
         {
             return contacts
-                .Where(c => c.ComunicationCapabilities .Any(p => p is ReceiveSmsCapability))
+                .Where(c => c.ComunicationCapabilities.Any(p => p is ReceiveSmsCapability))
                 .AsEnumerable()
                 .Select(Build);
         }
 
         public SmsContact Build(Contact smsContact)
         {
-            return new SmsContact(smsContact,_messageTarnsmitterObject);
+            return new SmsContact(smsContact, _messageTarnsmitterObject);
         }
     }
 }

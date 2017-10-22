@@ -10,6 +10,7 @@ namespace MtB.Entities
         {
             ComunicationCapabilities = new List<ICapability>();
         }
+
         public List<ICapability> ComunicationCapabilities { get; set; }
         public Guid ExternalId { get; set; }
         public int SequnceNum { get; set; }

@@ -1,6 +1,6 @@
-using MtB.Infrastructure;
-
-namespace MtB.EmailComponents
+namespace MtB.Entities
 {
-    public struct ReceiveEmailCapability : ICapability { }
+    public struct ReceiveEmailCapability : ICapability
+    {
+    }
 }

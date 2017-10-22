@@ -1,4 +1,4 @@
-namespace MtB.Infrastructure
+namespace MtB.Entities
 {
     public interface ICapability
     {

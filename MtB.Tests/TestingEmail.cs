@@ -14,12 +14,11 @@ namespace MtB.Tests
     [TestClass]
     public class TestingEmail
     {
-
         [TestMethod]
         public void SendEmailToSingleReceiver()
         {
             var receiverId = Guid.NewGuid();
-            var contact = new Contact() {ExternalId = receiverId};
+            var contact = new Contact {ExternalId = receiverId};
             var email = new Email("hello");
             contact.ComunicationCapabilities.Add(new ReceiveEmailCapability());
             var messageTarnsmitter = new Mock<ITransmitEmail>();
@@ -27,8 +26,9 @@ namespace MtB.Tests
 
             var emaContactFactory = new EmailContactFactory(messageTarnsmitter.Object);
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
-            var userContactsListFactory = new UserContactsListFactory(contactListProvider,emaContactFactory, null, new Guid());
-            var communicationModule =  new CommunicationModule( userContactsListFactory, null, new Guid());
+            var userContactsListFactory =
+                new UserContactsListFactory(contactListProvider, emaContactFactory, null, new Guid());
+            var communicationModule = new CommunicationModule(userContactsListFactory, null, new Guid());
 
             communicationModule.SendEmailTo(receiverId, email);
             messageTarnsmitter.Verify();
@@ -41,25 +41,26 @@ namespace MtB.Tests
             var receiverId = Guid.NewGuid();
             var receiverId2 = Guid.NewGuid();
 
-            var contact = new Contact() {ExternalId = receiverId};
+            var contact = new Contact {ExternalId = receiverId};
             contact.ComunicationCapabilities.Add(new ReceiveEmailCapability());
 
-            var contact2 = new Contact() {ExternalId = receiverId2};
+            var contact2 = new Contact {ExternalId = receiverId2};
             contact2.ComunicationCapabilities.Add(new ReceiveEmailCapability());
 
             var email = new Email("hello");
             var scheduleTask = new TaskSchedulerDouble();
 
             var messageTarnsmitter = new Mock<ITransmitEmail>();
-            messageTarnsmitter.Setup(t => t.Transmit(contact , email)).Verifiable();
-            messageTarnsmitter.Setup(t => t.Transmit(contact2 , email)).Verifiable();
+            messageTarnsmitter.Setup(t => t.Transmit(contact, email)).Verifiable();
+            messageTarnsmitter.Setup(t => t.Transmit(contact2, email)).Verifiable();
 
             var emaContactFactory = new EmailContactFactory(messageTarnsmitter.Object);
             var contactListProvider = new ProvideContactsDouble(new[] {contact, contact2}.AsQueryable());
-            var userContactsListFactory = new UserContactsListFactory(contactListProvider,emaContactFactory,null, userId);
-            var communicationModule =  new CommunicationModule( userContactsListFactory, scheduleTask, userId);
+            var userContactsListFactory =
+                new UserContactsListFactory(contactListProvider, emaContactFactory, null, userId);
+            var communicationModule = new CommunicationModule(userContactsListFactory, scheduleTask, userId);
 
-            communicationModule.SendEmailTo(new List<Guid>{receiverId, receiverId2}, email);
+            communicationModule.SendEmailTo(new List<Guid> {receiverId, receiverId2}, email);
             messageTarnsmitter.Verify();
         }
     }

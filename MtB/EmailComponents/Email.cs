@@ -1,5 +1,4 @@
 using MtB.Entities;
-using MtB.Infrastructure;
 
 namespace MtB.EmailComponents
 {
@@ -7,6 +6,7 @@ namespace MtB.EmailComponents
     {
         void Transmit(Contact contact, Email email);
     }
+
     public struct Email
     {
         private readonly string _text;

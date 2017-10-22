@@ -2,19 +2,19 @@ using System;
 using System.Linq;
 using Moq;
 using MtB.Entities;
-using MtB.Infrastructure;
 using MtB.Plugins;
 
 namespace MtB.Tests.TestDoubles
 {
     public class ProvideContactsDouble : Mock<IProvideContacts>, IProvideContacts
     {
-        private IQueryable<Contact> _list;
+        private readonly IQueryable<Contact> _list;
 
         public ProvideContactsDouble(IQueryable<Contact> list)
         {
             _list = list;
         }
+
         public IQueryable<Contact> GetAll(Guid userId)
         {
             return _list;
