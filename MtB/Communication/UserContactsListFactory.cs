@@ -1,8 +1,8 @@
 using System;
-using MtB.SmsComponents;
 using MtB.EmailComponents;
+using MtB.SmsComponents;
 
-namespace MtB
+namespace MtB.Communication
 {
     public class UserContactsListFactory
     {

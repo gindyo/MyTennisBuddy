@@ -5,16 +5,16 @@ namespace MtB.EmailComponents
     public class EmailContact
     {
         private readonly Contact _contact;
-        private readonly IEmailTransmitter _emailTransmitter;
+        private readonly ITransmitEmail _transmitEmail;
 
-        public EmailContact(Contact contact, IEmailTransmitter emailTransmitter)
+        public EmailContact(Contact contact, ITransmitEmail transmitEmail)
         {
             _contact = contact;
-            _emailTransmitter = emailTransmitter;
+            _transmitEmail = transmitEmail;
         }
 
         public Guid ExternalId => _contact.ExternalId;
         public int SequenceNum => _contact.SequnceNum;
-        public void ReceiveEmail(Email email) => _emailTransmitter.Transmit(_contact, email);
+        public void ReceiveEmail(Email email) => _transmitEmail.Transmit(_contact, email);
     }
 }

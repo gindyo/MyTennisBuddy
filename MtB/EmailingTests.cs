@@ -68,7 +68,7 @@ namespace MtB
             var contact = new Contact() {ExternalId = receiverId};
             var email = new Email("hello");
             contact.ComunicationCapabilities.Add(new ReceiveEmail());
-            var messageTarnsmitter = new Mock<IEmailTransmitter>();
+            var messageTarnsmitter = new Mock<ITransmitEmail>();
             messageTarnsmitter.Setup(t => t.Transmit(contact, email)).Verifiable();
 
             var userId = new Guid();
@@ -99,7 +99,7 @@ namespace MtB
             var email = new Email("hello");
             var scheduleTask = new TaskSchedulerDouble();
 
-            var messageTarnsmitter = new Mock<IEmailTransmitter>();
+            var messageTarnsmitter = new Mock<ITransmitEmail>();
             messageTarnsmitter.Setup(t => t.Transmit(contact , email)).Verifiable();
             messageTarnsmitter.Setup(t => t.Transmit(contact2 , email)).Verifiable();
 

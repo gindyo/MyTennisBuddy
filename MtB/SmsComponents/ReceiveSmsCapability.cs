@@ -1,6 +1,8 @@
+using MtB.Communication;
+
 namespace MtB.SmsComponents
 {
-    public struct ReceiveSmsCapability : IContactPreference
+    public struct ReceiveSmsCapability : ICapability
     {
     }
 }

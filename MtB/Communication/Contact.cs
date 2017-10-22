@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MtB.Communication;
 
 namespace MtB
 {
@@ -7,9 +8,9 @@ namespace MtB
     {
         public Contact()
         {
-            ComunicationCapabilities = new List<IContactPreference>();
+            ComunicationCapabilities = new List<ICapability>();
         }
-        public List<IContactPreference> ComunicationCapabilities { get; set; }
+        public List<ICapability> ComunicationCapabilities { get; set; }
         public Guid ExternalId { get; set; }
         public int SequnceNum { get; set; }
         public string CellPhoneNmuber { get; set; }

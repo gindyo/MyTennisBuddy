@@ -2,16 +2,16 @@ namespace MtB.EmailComponents
 {
     public class EmailContactFactory
     {
-        private readonly IEmailTransmitter _emailTransmitter;
+        private readonly ITransmitEmail _transmitEmail;
 
-        public EmailContactFactory(IEmailTransmitter emailTransmitter)
+        public EmailContactFactory(ITransmitEmail transmitEmail)
         {
-            _emailTransmitter = emailTransmitter;
+            _transmitEmail = transmitEmail;
         }
 
         public EmailContact Build(Contact contact)
         {
-            return new EmailContact(contact, _emailTransmitter);
+            return new EmailContact(contact, _transmitEmail);
         }
     }
 }

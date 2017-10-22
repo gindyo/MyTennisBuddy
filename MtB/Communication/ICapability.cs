@@ -1,6 +1,6 @@
-namespace MtB
+namespace MtB.Communication
 {
-    public interface IContactPreference
+    public interface ICapability
     {
     }
 }
