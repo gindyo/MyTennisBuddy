@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MtB
+namespace MtB.EmailComponents
 {
     public class EmailContactList
     {
@@ -11,7 +11,7 @@ namespace MtB
         public EmailContactList(IQueryable<Contact> contacs, EmailContactFactory emailContactFactory)
         {
             _emailContactFactory = emailContactFactory;
-            Contacts = contacs.Where(c => c.ContactPreferences.Contains(new EmailPreference()));
+            Contacts = contacs.Where(c => c.ComunicationCapabilities.Contains(new EmailPreference()));
         }
         private IQueryable<Contact> Contacts { get;  }
         public EmailContact Get(Guid receiverId)

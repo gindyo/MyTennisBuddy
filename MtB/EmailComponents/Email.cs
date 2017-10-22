@@ -1,5 +1,9 @@
-namespace MtB
+namespace MtB.EmailComponents
 {
+    public interface ITransmitNotification
+    {
+        void Transmit(Contact contact, Email email);
+    }
     public struct Email
     {
         private readonly string _text;

@@ -7,16 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Emailing\CommunicationModule.cs" />
-    <Compile Remove="Emailing\ContactFactory.cs" />
-    <Compile Remove="Emailing\SendEmailCapability.cs" />
+    <Compile Remove="EmailComponents\ContactFactory.cs" />
+    <Compile Remove="EmailComponents\SendEmailCapability.cs" />
     <Compile Remove="EmailModule.cs" />
     <Compile Remove="IBuildContact.cs" />
     <Compile Remove="ICapability.cs" />
     <Compile Remove="ITransmitNotification.cs" />
     <Compile Remove="NewTaskSchedulerDouble.cs" />
     <Compile Remove="SendSmsCapability.cs" />
-    <Compile Remove="SmsContactFactory.cs" />
     <Compile Remove="SmsModule.cs" />
   </ItemGroup>
 

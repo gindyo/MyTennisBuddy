@@ -7,9 +7,9 @@ namespace MtB
     {
         public Contact()
         {
-            ContactPreferences = new List<IContactPreference>();
+            ComunicationCapabilities = new List<IContactPreference>();
         }
-        public List<IContactPreference> ContactPreferences { get; set; }
+        public List<IContactPreference> ComunicationCapabilities { get; set; }
         public Guid ExternalId { get; set; }
         public int SequnceNum { get; set; }
     }

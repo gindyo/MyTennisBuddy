@@ -1,12 +1,10 @@
-using System;
-
-namespace MtB
+namespace MtB.EmailComponents
 {
     public class EmailContactFactory
     {
-        private readonly ITransmitEmail _emailTransmitter;
+        private readonly IEmailTransmitter _emailTransmitter;
 
-        public EmailContactFactory(ITransmitEmail emailTransmitter)
+        public EmailContactFactory(IEmailTransmitter emailTransmitter)
         {
             _emailTransmitter = emailTransmitter;
         }

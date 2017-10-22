@@ -1,13 +1,13 @@
 using System;
 
-namespace MtB
+namespace MtB.EmailComponents
 {
     public class EmailContact
     {
         private readonly Contact _contact;
-        private readonly ITransmitEmail _emailTransmitter;
+        private readonly IEmailTransmitter _emailTransmitter;
 
-        public EmailContact(Contact contact, ITransmitEmail emailTransmitter)
+        public EmailContact(Contact contact, IEmailTransmitter emailTransmitter)
         {
             _contact = contact;
             _emailTransmitter = emailTransmitter;

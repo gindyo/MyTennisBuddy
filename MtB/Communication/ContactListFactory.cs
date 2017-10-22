@@ -1,6 +1,7 @@
 using System.Linq;
+using MtB.EmailComponents;
 
-namespace MtB
+namespace MtB.Communication
 {
     public class ContactListFactory
     {
