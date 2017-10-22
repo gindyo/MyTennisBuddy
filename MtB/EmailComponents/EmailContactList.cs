@@ -23,7 +23,7 @@ namespace MtB.EmailComponents
             return contact == null ? null : _emailContactFactory.Build(contact);
         }
 
-        public IEnumerable<EmailContact> Get(List<Guid> receiverIds)
+        public IEnumerable<EmailContact> Get(IEnumerable<Guid> receiverIds)
         {
             return Contacts.Where(c => receiverIds.Contains(c.ExternalId)).AsEnumerable()
                 .Select(_emailContactFactory.Build);

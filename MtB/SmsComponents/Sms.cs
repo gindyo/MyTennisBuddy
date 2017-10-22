@@ -1,12 +1,17 @@
 ﻿namespace MtB.SmsComponents
 {
-    public class Sms
+    public struct Sms
     {
-        private readonly string _text;
+        public string Text { get; }
 
         public Sms(string text)
         {
-            _text = text;
+            Text = text;
+        }
+
+        public override int GetHashCode()
+        {
+            return (Text != null ? Text.GetHashCode() : 0);
         }
     }
 }

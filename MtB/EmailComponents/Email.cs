@@ -1,19 +1,17 @@
-using MtB.Entities;
-
 namespace MtB.EmailComponents
 {
-    public interface ITransmitNotification
-    {
-        void Transmit(Contact contact, Email email);
-    }
-
     public struct Email
     {
-        private readonly string _text;
+        public string Text { get; }
 
         public Email(string text)
         {
-            _text = text;
+            Text = text;
+        }
+
+        public override int GetHashCode()
+        {
+            return (Text != null ? Text.GetHashCode() : 0);
         }
     }
 }

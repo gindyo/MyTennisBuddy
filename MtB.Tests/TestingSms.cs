@@ -11,6 +11,7 @@ using MtB.Tests.TestDoubles;
 
 namespace MtB.Tests
 {
+
     [TestClass]
     public class TestingSms
     {
@@ -66,4 +67,4 @@ namespace MtB.Tests
             messageTarnsmitter.Verify();
         }
     }
-}
+} 

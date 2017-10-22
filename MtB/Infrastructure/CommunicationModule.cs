@@ -30,7 +30,7 @@ namespace MtB.Infrastructure
         public void SendEmailTo(Guid receiver, Email email)
         {
             var emailContact = EmailContactList.Get(receiver);
-            emailContact.ReceiveEmail(email);
+            emailContact.Receive(email);
         }
 
         public void SendEmailTo(List<Guid> list, Email email)
@@ -41,7 +41,7 @@ namespace MtB.Infrastructure
                 .ToList();
             foreach (var contact in emailContacts)
             {
-                _scheduleTask.Do(() => contact.ReceiveEmail(email));
+                _scheduleTask.Do(() => contact.Receive(email));
                 _scheduleTask.In(TimeSpan.FromMinutes(5));
                 _scheduleTask.StartCounting();
             }
@@ -64,6 +64,19 @@ namespace MtB.Infrastructure
                 _scheduleTask.In(TimeSpan.FromMinutes(5));
                 _scheduleTask.StartCounting();
             }
+        }
+
+        public void SendToAllSupportedDevices(Guid receiverId, string text)
+        {
+            foreach (var contact in SmsContactList.Get(new []{receiverId}))
+            {
+                contact.Receive(new Sms(text));
+            }
+            foreach (var contact in EmailContactList.Get(new []{receiverId}))
+            {
+                contact.Receive(new Email(text));
+            }
+            
         }
     }
 }
