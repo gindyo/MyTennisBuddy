@@ -1,8 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Linq;
 
-namespace MtB
+namespace MtB.Communication
 {
     public class ContactListProvider
     {

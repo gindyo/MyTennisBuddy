@@ -25,7 +25,7 @@ namespace MtB.Communication
             emailContact.ReceiveEmail(email);
         }
 
-        private EmailContactList EmailContactList  => _userContactsListFactory.GetContactListFor(new EmailPreference());
+        private EmailContactList EmailContactList  => _userContactsListFactory.GetContactListFor(new ReceiveEmail());
         private SmsContactList SmsContactList  => _userContactsListFactory.GetContactListFor(new ReceiveSmsCapability());
 
         internal void SendEmailTo(List<Guid> list, Email email)

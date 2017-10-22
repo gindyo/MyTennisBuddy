@@ -18,7 +18,7 @@ namespace MtB
             var receiverId = Guid.NewGuid();
             var contact = new Contact() {ExternalId = receiverId};
             var sms = new Sms("hello");
-            contact.ComunicationCapabilities.Add(new EmailPreference());
+            contact.ComunicationCapabilities.Add(new ReceiveEmail());
             var messageTarnsmitter = new Mock<ITransmitSms>();
             messageTarnsmitter.Setup(t => t.Transmit(contact, sms)).Verifiable();
 
@@ -45,7 +45,7 @@ namespace MtB
             var contact2 = new Contact() {ExternalId = receiverId2};
             contact2.ComunicationCapabilities.Add(new ReceiveSmsCapability());
             var sms = new Sms("hello");
-            contact.ComunicationCapabilities.Add(new EmailPreference());
+            contact.ComunicationCapabilities.Add(new ReceiveEmail());
             var messageTarnsmitter = new Mock<ITransmitSms>();
             messageTarnsmitter.Setup(t => t.Transmit(contact, sms)).Verifiable();
 
@@ -67,7 +67,7 @@ namespace MtB
             var receiverId = Guid.NewGuid();
             var contact = new Contact() {ExternalId = receiverId};
             var email = new Email("hello");
-            contact.ComunicationCapabilities.Add(new EmailPreference());
+            contact.ComunicationCapabilities.Add(new ReceiveEmail());
             var messageTarnsmitter = new Mock<IEmailTransmitter>();
             messageTarnsmitter.Setup(t => t.Transmit(contact, email)).Verifiable();
 
@@ -91,10 +91,10 @@ namespace MtB
             var receiverId2 = Guid.NewGuid();
 
             var contact = new Contact() {ExternalId = receiverId};
-            contact.ComunicationCapabilities.Add(new EmailPreference());
+            contact.ComunicationCapabilities.Add(new ReceiveEmail());
 
             var contact2 = new Contact() {ExternalId = receiverId2};
-            contact2.ComunicationCapabilities.Add(new EmailPreference());
+            contact2.ComunicationCapabilities.Add(new ReceiveEmail());
 
             var email = new Email("hello");
             var scheduleTask = new TaskSchedulerDouble();

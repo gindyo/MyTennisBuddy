@@ -11,7 +11,7 @@ namespace MtB.EmailComponents
         public EmailContactList(IQueryable<Contact> contacs, EmailContactFactory emailContactFactory)
         {
             _emailContactFactory = emailContactFactory;
-            Contacts = contacs.Where(c => c.ComunicationCapabilities.Contains(new EmailPreference()));
+            Contacts = contacs.Where(c => c.ComunicationCapabilities.Any(cap=> cap is  ReceiveEmail));
         }
         private IQueryable<Contact> Contacts { get;  }
         public EmailContact Get(Guid receiverId)

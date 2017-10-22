@@ -24,7 +24,7 @@ namespace MtB
             var contacs = _contactListProvider.GetAll(_userId);
             return new SmsContactList(contacs,_smsContactFactory);
         }
-        public EmailContactList GetContactListFor(EmailPreference smsPreference)
+        public EmailContactList GetContactListFor(ReceiveEmail sms)
         {
             var contacs = _contactListProvider.GetAll(_userId);
             return new EmailContactList(contacs,_emailContactFactory);
