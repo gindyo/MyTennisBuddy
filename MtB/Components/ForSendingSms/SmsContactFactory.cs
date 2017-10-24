@@ -3,7 +3,7 @@ using System.Linq;
 using MtB.Entities;
 using MtB.Plugins;
 
-namespace MtB.SmsComponents
+namespace MtB.Components.ForSendingSms
 {
     public class SmsContactFactory
     {

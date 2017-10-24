@@ -7,8 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="EmailComponents\ContactFactory.cs" />
-    <Compile Remove="EmailComponents\SendEmailCapability.cs" />
+    <Compile Remove="Components\ForSendingEmail\ContactFactory.cs" />
+    <Compile Remove="Components\ForSendingEmail\SendEmailCapability.cs" />
     <Compile Remove="EmailModule.cs" />
     <Compile Remove="IBuildContact.cs" />
     <Compile Remove="ICapability.cs" />

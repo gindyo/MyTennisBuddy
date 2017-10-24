@@ -1,10 +1,10 @@
-namespace MtB.EmailComponents
+﻿namespace MtB.Components.ForSendingSms
 {
-    public struct Email
+    public struct Sms
     {
         public string Text { get; }
 
-        public Email(string text)
+        public Sms(string text)
         {
             Text = text;
         }

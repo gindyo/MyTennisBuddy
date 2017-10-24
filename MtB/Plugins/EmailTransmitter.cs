@@ -1,4 +1,4 @@
-using MtB.EmailComponents;
+using MtB.Components.ForSendingEmail;
 using MtB.Entities;
 
 namespace MtB.Plugins

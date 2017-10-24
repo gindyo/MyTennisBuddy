@@ -1,7 +1,7 @@
 using MtB.Entities;
 using MtB.Plugins;
 
-namespace MtB.EmailComponents
+namespace MtB.Components.ForSendingEmail
 {
     public class EmailContactFactory
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MtB.Entities;
 
-namespace MtB.SmsComponents
+namespace MtB.Components.ForSendingSms
 {
     public class SmsContactList
     {

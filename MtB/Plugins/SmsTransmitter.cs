@@ -1,5 +1,5 @@
-﻿using MtB.Entities;
-using MtB.SmsComponents;
+﻿using MtB.Components.ForSendingSms;
+using MtB.Entities;
 
 namespace MtB.Plugins
 {

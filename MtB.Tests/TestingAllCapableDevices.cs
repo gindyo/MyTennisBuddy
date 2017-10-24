@@ -2,11 +2,13 @@ using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using MtB.EmailComponents;
+using MtB.Components.ForSendingEmail;
+using MtB.Components.ForSendingSms;
 using MtB.Entities;
 using MtB.Infrastructure;
+using MtB.Infrastructure.ForCommunication;
+using MtB.Infrastructure.ForManufacturing;
 using MtB.Plugins;
-using MtB.SmsComponents;
 using MtB.Tests.TestDoubles;
 
 namespace MtB.Tests
@@ -38,12 +40,12 @@ namespace MtB.Tests
             var emaContactFactory = new EmailContactFactory(emailTransmitter.Object);
 
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
-            var userContactsListFactory =
-                new UserContactsListFactory(contactListProvider, emaContactFactory, smsContactFactory, userId);
-            var applicationInstance = new CommunicationModule(userContactsListFactory, null, userId);
-            var app = applicationInstance;
+            var userContactsListFactory = new UserContacts(contactListProvider, emaContactFactory, smsContactFactory, userId);
+            var emailSender = new ViaEmail(userContactsListFactory, null);
+            var smsSender = new ViaSms(userContactsListFactory, null);
+            var notificationSender = new ViaAllSupportedDevices(smsSender, emailSender);
 
-            app.SendToAllSupportedDevices(receiverId, messageText);
+            notificationSender.Send(receiverId, messageText);
             smsTransmitter.Verify();
         }
         [TestMethod]
@@ -69,12 +71,12 @@ namespace MtB.Tests
             var emaContactFactory = new EmailContactFactory(emailTransmitter.Object);
 
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
-            var userContactsListFactory =
-                new UserContactsListFactory(contactListProvider, emaContactFactory, smsContactFactory, userId);
-            var applicationInstance = new CommunicationModule(userContactsListFactory, null, userId);
-            var app = applicationInstance;
+            var userContactsListFactory = new UserContacts(contactListProvider, emaContactFactory, smsContactFactory, userId);
+            var viaEmail = new ViaEmail(userContactsListFactory, null);
+            var viaSms = new ViaSms(userContactsListFactory, null);
+            var viaAllSupported = new ViaAllSupportedDevices(viaSms, viaEmail);
 
-            app.SendToAllSupportedDevices(receiverId, messageText);
+            viaAllSupported.Send(receiverId, messageText);
             smsTransmitter.Verify();
         }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using MtB.Entities;
 
-namespace MtB.EmailComponents
+namespace MtB.Components.ForSendingEmail
 {
     public class EmailContactList
     {
