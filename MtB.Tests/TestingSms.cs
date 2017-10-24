@@ -31,12 +31,11 @@ namespace MtB.Tests
             var smsContactFactory = new SmsContactFactory(messageTarnsmitter.Object);
             var emaContactFactory = new EmailContactFactory(null);
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
-            var userContactsListFactory =
-                new UserContacts(contactListProvider, emaContactFactory, smsContactFactory, userId);
-            var applicationInstance = new ViaEmail(userContactsListFactory, null);
+            var userContactsListFactory = new UserContacts(contactListProvider, emaContactFactory, smsContactFactory, userId);
+            var applicationInstance = new ViaSms(userContactsListFactory, null);
             var app = applicationInstance;
 
-            app.SendSmsTo(receiverId, sms);
+            app.Send(receiverId, sms);
             messageTarnsmitter.Verify();
         }
 
@@ -61,11 +60,9 @@ namespace MtB.Tests
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
             var userContactsListFactory =
                 new UserContacts(contactListProvider, null, smsContactFactory, userId);
-            var applicationInstance =
-                new ViaEmail(userContactsListFactory, new TaskSchedulerDouble());
-            var app = applicationInstance;
+            var app = new ViaSms(userContactsListFactory, new TaskSchedulerDouble());
 
-            app.SendSmsTo(new[] {receiverId, receiverId2}, sms);
+            app.Send(new[] {receiverId, receiverId2}, sms);
             messageTarnsmitter.Verify();
         }
     }

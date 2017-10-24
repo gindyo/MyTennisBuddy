@@ -25,8 +25,12 @@ namespace MtB.Infrastructure.ForCommunication
 
         public void Send(Guid receiver, Email email)
         {
-            var emailContact = EmailContactList.Get(receiver);
-            emailContact.Receive(email);
+            var emailContacts = EmailContactList.Get(new []{receiver});
+            foreach (var emailContact in emailContacts)
+            {
+                emailContact.Receive(email);
+            }
+
         }
 
         public void Send(IEnumerable<Guid> list, Email email)
