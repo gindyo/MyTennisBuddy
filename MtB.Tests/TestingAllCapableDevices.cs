@@ -2,13 +2,13 @@ using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using MtB.Components.ForSendingEmail;
-using MtB.Components.ForSendingSms;
-using MtB.Entities;
-using MtB.Infrastructure;
-using MtB.Infrastructure.ForCommunication;
-using MtB.Infrastructure.ForManufacturing;
-using MtB.Plugins;
+using MtB.Communication.Components;
+using MtB.Communication.Components.ForNotifyingAllChannels;
+using MtB.Communication.Components.ForSendingEmail;
+using MtB.Communication.Components.ForSendingSms;
+using MtB.Communication.Entities;
+using MtB.Communication.Factories;
+using MtB.Communication.Plugins;
 using MtB.Tests.TestDoubles;
 
 namespace MtB.Tests
@@ -40,7 +40,7 @@ namespace MtB.Tests
             var emaContactFactory = new EmailContactFactory(emailTransmitter.Object);
 
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
-            var userContactsListFactory = new UserContacts(contactListProvider, emaContactFactory, smsContactFactory, userId);
+            var userContactsListFactory = new BuildUserContactList(contactListProvider, emaContactFactory, smsContactFactory, userId);
             var emailSender = new ViaEmail(userContactsListFactory, null);
             var smsSender = new ViaSms(userContactsListFactory, null);
             var notificationSender = new ViaAllSupportedDevices(smsSender, emailSender);
@@ -71,7 +71,7 @@ namespace MtB.Tests
             var emaContactFactory = new EmailContactFactory(emailTransmitter.Object);
 
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
-            var userContactsListFactory = new UserContacts(contactListProvider, emaContactFactory, smsContactFactory, userId);
+            var userContactsListFactory = new BuildUserContactList(contactListProvider, emaContactFactory, smsContactFactory, userId);
             var viaEmail = new ViaEmail(userContactsListFactory, null);
             var viaSms = new ViaSms(userContactsListFactory, null);
             var viaAllSupported = new ViaAllSupportedDevices(viaSms, viaEmail);

@@ -1,6 +1,6 @@
 using System;
 
-namespace MtB.Plugins
+namespace MtB.Communication.Plugins
 {
     public interface IScheduleTask
     {

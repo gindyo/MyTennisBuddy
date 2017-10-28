@@ -1,8 +1,8 @@
 using System;
-using MtB.Entities;
-using MtB.Plugins;
+using MtB.Communication.Entities;
+using MtB.Communication.Plugins;
 
-namespace MtB.Components.ForSendingEmail
+namespace MtB.Communication.Components.ForSendingEmail
 {
     public class EmailContact
     {

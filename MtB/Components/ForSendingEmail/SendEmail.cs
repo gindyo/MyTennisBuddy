@@ -1,19 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MtB.Components.ForSendingEmail;
-using MtB.Entities;
-using MtB.Infrastructure.ForManufacturing;
-using MtB.Plugins;
+using MtB.Communication.Entities;
+using MtB.Communication.Factories;
+using MtB.Communication.Plugins;
 
-namespace MtB.Infrastructure.ForCommunication
+namespace MtB.Communication.Components.ForSendingEmail
 {
     public class ViaEmail
     {
         private readonly IScheduleTask _scheduleTask;
-        private readonly UserContacts _userContactsListFactory;
+        private readonly BuildUserContactList _userContactsListFactory;
 
-        public ViaEmail(UserContacts userContactsListFactory, IScheduleTask scheduleScheduleTask )
+        public ViaEmail(BuildUserContactList userContactsListFactory, IScheduleTask scheduleScheduleTask )
         {
             _userContactsListFactory = userContactsListFactory;
             _scheduleTask = scheduleScheduleTask;

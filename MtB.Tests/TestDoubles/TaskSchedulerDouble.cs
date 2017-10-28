@@ -1,5 +1,5 @@
 using System;
-using MtB.Plugins;
+using MtB.Communication.Plugins;
 
 namespace MtB.Tests.TestDoubles
 {

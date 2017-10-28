@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MtB.Entities;
+using MtB.Communication.Entities;
 
-namespace MtB.Components.ForSendingSms
+namespace MtB.Communication.Components.ForSendingSms
 {
     public class SmsContactList
     {

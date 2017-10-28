@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
-using MtB.Entities;
-using MtB.Plugins;
+using MtB.Communication.Entities;
+using MtB.Communication.Plugins;
 
-namespace MtB.Components.ForSendingSms
+namespace MtB.Communication.Components.ForSendingSms
 {
     public class SmsContactFactory
     {

@@ -1,7 +1,7 @@
-﻿using MtB.Components.ForSendingSms;
-using MtB.Entities;
+﻿using MtB.Communication.Components.ForSendingSms;
+using MtB.Communication.Entities;
 
-namespace MtB.Plugins
+namespace MtB.Communication.Plugins
 {
     public interface ITransmitSms
     {

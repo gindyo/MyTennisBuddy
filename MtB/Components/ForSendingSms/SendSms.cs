@@ -1,22 +1,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MtB.Components.ForSendingSms;
-using MtB.Entities;
-using MtB.Infrastructure.ForManufacturing;
-using MtB.Plugins;
+using MtB.Communication.Factories;
+using MtB.Communication.Plugins;
 
-namespace MtB.Infrastructure.ForCommunication
+namespace MtB.Communication.Components.ForSendingSms
 {
-    public class ViaSms
+    public class SendSms
     {
-        private UserContacts _userContactsListFactory;
-        private IScheduleTask _scheduleTask;
-        private SmsContactList SmsContactList => _userContactsListFactory.GetContactListFor(new ReceiveSmsCapability());
+        private readonly BuildUserContactList _buildContactList;
+        private readonly IScheduleTask _scheduleTask;
+        private SmsContactList SmsContactList => _buildContactList.With(new ReceiveSmsCapability());
 
-        public ViaSms(UserContacts userContactsListFactory, IScheduleTask scheduleScheduleTask )
+        public SendSms(BuildUserContactList buildContactList, IScheduleTask scheduleScheduleTask )
         {
-            _userContactsListFactory = userContactsListFactory;
+            _buildContactList = buildContactList;
             _scheduleTask = scheduleScheduleTask;
         }
         public void Send(Guid receiverId, Sms sms)

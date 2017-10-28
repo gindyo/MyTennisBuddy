@@ -1,4 +1,4 @@
-namespace MtB.Components.ForSendingEmail
+namespace MtB.Communication.Components.ForSendingEmail
 {
     public struct Email
     {

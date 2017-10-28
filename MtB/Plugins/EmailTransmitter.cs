@@ -1,7 +1,7 @@
-using MtB.Components.ForSendingEmail;
-using MtB.Entities;
+using MtB.Communication.Components.ForSendingEmail;
+using MtB.Communication.Entities;
 
-namespace MtB.Plugins
+namespace MtB.Communication.Plugins
 {
     public interface ITransmitEmail
     {

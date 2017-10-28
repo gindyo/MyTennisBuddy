@@ -1,8 +1,8 @@
 using System;
 using System.Linq;
 using Moq;
-using MtB.Entities;
-using MtB.Plugins;
+using MtB.Communication.Entities;
+using MtB.Communication.Plugins;
 
 namespace MtB.Tests.TestDoubles
 {

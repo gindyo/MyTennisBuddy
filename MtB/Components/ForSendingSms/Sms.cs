@@ -1,4 +1,4 @@
-﻿namespace MtB.Components.ForSendingSms
+﻿namespace MtB.Communication.Components.ForSendingSms
 {
     public struct Sms
     {

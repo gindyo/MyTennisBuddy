@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using MtB.Components.ForSendingEmail;
-using MtB.Entities;
-using MtB.Infrastructure;
-using MtB.Infrastructure.ForCommunication;
-using MtB.Infrastructure.ForManufacturing;
-using MtB.Plugins;
+using MtB.Communication.Components.ForSendingEmail;
+using MtB.Communication.Entities;
+using MtB.Communication.Factories;
+using MtB.Communication.Plugins;
 using MtB.Tests.TestDoubles;
 
 namespace MtB.Tests
@@ -29,7 +27,7 @@ namespace MtB.Tests
             var emaContactFactory = new EmailContactFactory(messageTarnsmitter.Object);
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
             var userContactsListFactory =
-                new UserContacts(contactListProvider, emaContactFactory, null, new Guid());
+                new BuildUserContactList(contactListProvider, emaContactFactory, null, new Guid());
             var communicationModule = new ViaEmail(userContactsListFactory, null);
 
             communicationModule.Send(receiverId, email);
@@ -60,7 +58,7 @@ namespace MtB.Tests
             var emaContactFactory = new EmailContactFactory(messageTarnsmitter.Object);
             var contactListProvider = new ProvideContactsDouble(new[] {contact, contact2}.AsQueryable());
             var userContactsListFactory =
-                new UserContacts(contactListProvider, emaContactFactory, null, userId);
+                new BuildUserContactList(contactListProvider, emaContactFactory, null, userId);
             var communicationModule = new ViaEmail(userContactsListFactory, scheduleTask);
 
             communicationModule.Send(new List<Guid> {receiverId, receiverId2}, email);

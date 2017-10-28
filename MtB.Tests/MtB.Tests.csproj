@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MtB\MtB.csproj" />
+    <ProjectReference Include="..\MtB\MtB.Communication.csproj" />
   </ItemGroup>
 
 </Project>

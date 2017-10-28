@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MtB.Entities;
+using MtB.Communication.Entities;
 
-namespace MtB.Components.ForSendingEmail
+namespace MtB.Communication.Components.ForSendingEmail
 {
     public class EmailContactList
     {

@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
-using MtB.Components.ForSendingEmail;
-using MtB.Components.ForSendingSms;
+using MtB.Communication.Components.ForSendingEmail;
+using MtB.Communication.Components.ForSendingSms;
 
-namespace MtB.Infrastructure.ForCommunication
+namespace MtB.Communication.Components.ForNotifyingAllChannels
 {
     public class ViaAllSupportedDevices
     {

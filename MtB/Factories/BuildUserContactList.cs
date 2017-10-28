@@ -1,19 +1,19 @@
 using System;
-using MtB.Components.ForSendingEmail;
-using MtB.Components.ForSendingSms;
-using MtB.Entities;
-using MtB.Plugins;
+using MtB.Communication.Components.ForSendingEmail;
+using MtB.Communication.Components.ForSendingSms;
+using MtB.Communication.Entities;
+using MtB.Communication.Plugins;
 
-namespace MtB.Infrastructure.ForManufacturing
+namespace MtB.Communication.Factories
 {
-    public class UserContacts
+    public class BuildUserContactList
     {
         private readonly EmailContactFactory _emailContactFactory;
         private readonly IProvideContacts _provideContacts;
         private readonly SmsContactFactory _smsContactFactory;
         private readonly Guid _userId;
 
-        public UserContacts(IProvideContacts provideContacts, EmailContactFactory emailContactFactory,
+        public BuildUserContactList(IProvideContacts provideContacts, EmailContactFactory emailContactFactory,
             SmsContactFactory smsContactFactory, Guid userId)
         {
             _provideContacts = provideContacts;

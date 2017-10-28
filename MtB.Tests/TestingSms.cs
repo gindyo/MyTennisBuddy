@@ -2,13 +2,11 @@ using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using MtB.Components.ForSendingEmail;
-using MtB.Components.ForSendingSms;
-using MtB.Entities;
-using MtB.Infrastructure;
-using MtB.Infrastructure.ForCommunication;
-using MtB.Infrastructure.ForManufacturing;
-using MtB.Plugins;
+using MtB.Communication.Components.ForSendingEmail;
+using MtB.Communication.Components.ForSendingSms;
+using MtB.Communication.Entities;
+using MtB.Communication.Factories;
+using MtB.Communication.Plugins;
 using MtB.Tests.TestDoubles;
 
 namespace MtB.Tests
@@ -31,7 +29,7 @@ namespace MtB.Tests
             var smsContactFactory = new SmsContactFactory(messageTarnsmitter.Object);
             var emaContactFactory = new EmailContactFactory(null);
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
-            var userContactsListFactory = new UserContacts(contactListProvider, emaContactFactory, smsContactFactory, userId);
+            var userContactsListFactory = new BuildUserContactList(contactListProvider, emaContactFactory, smsContactFactory, userId);
             var applicationInstance = new ViaSms(userContactsListFactory, null);
             var app = applicationInstance;
 
@@ -59,7 +57,7 @@ namespace MtB.Tests
             var smsContactFactory = new SmsContactFactory(messageTarnsmitter.Object);
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
             var userContactsListFactory =
-                new UserContacts(contactListProvider, null, smsContactFactory, userId);
+                new BuildUserContactList(contactListProvider, null, smsContactFactory, userId);
             var app = new ViaSms(userContactsListFactory, new TaskSchedulerDouble());
 
             app.Send(new[] {receiverId, receiverId2}, sms);
