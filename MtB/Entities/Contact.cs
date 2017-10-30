@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using MtB.CommonValueObjects;
 
 namespace MtB.Communication.Entities
 {
@@ -10,7 +11,7 @@ namespace MtB.Communication.Entities
             ComunicationCapabilities = new List<ICapability>();
         }
 
-        public string Name { get; set; }
+        public Name Name { get; set; }
         public List<ICapability> ComunicationCapabilities { get; set; }
         public Guid ExternalId { get; set; }
         public int NotificationSequenceNumber { get; set; }
