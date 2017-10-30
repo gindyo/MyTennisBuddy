@@ -7,9 +7,9 @@ using MtB.Communication.Components.ForSendingEmail;
 using MtB.Communication.Entities;
 using MtB.Communication.Factories;
 using MtB.Communication.Plugins;
-using MtB.Tests.TestDoubles;
+using MtB.Communication.Tests.TestDoubles;
 
-namespace MtB.Tests
+namespace MtB.Communication.Tests
 {
     [TestClass]
     public class TestingEmail
@@ -28,9 +28,9 @@ namespace MtB.Tests
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
             var userContactsListFactory =
                 new BuildUserContactList(contactListProvider, emaContactFactory, null, new Guid());
-            var communicationModule = new ViaEmail(userContactsListFactory, null);
+            var communicationModule = new SendEmail(userContactsListFactory, null);
 
-            communicationModule.Send(receiverId, email);
+            communicationModule.To(receiverId, email);
             messageTarnsmitter.Verify();
         }
 
@@ -59,9 +59,9 @@ namespace MtB.Tests
             var contactListProvider = new ProvideContactsDouble(new[] {contact, contact2}.AsQueryable());
             var userContactsListFactory =
                 new BuildUserContactList(contactListProvider, emaContactFactory, null, userId);
-            var communicationModule = new ViaEmail(userContactsListFactory, scheduleTask);
+            var communicationModule = new SendEmail(userContactsListFactory, scheduleTask);
 
-            communicationModule.Send(new List<Guid> {receiverId, receiverId2}, email);
+            communicationModule.To(new List<Guid> {receiverId, receiverId2}, email);
             messageTarnsmitter.Verify();
         }
     }

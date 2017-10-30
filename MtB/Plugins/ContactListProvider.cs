@@ -4,7 +4,7 @@ using MtB.Communication.Entities;
 
 namespace MtB.Communication.Plugins
 {
-    public interface IProvideContacts
+    public interface IProvideContacts : IQueryable<Contact>
     {
         IQueryable<Contact> GetAll(Guid userId);
     }

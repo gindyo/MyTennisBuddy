@@ -1,7 +1,7 @@
 using System;
 using MtB.Communication.Plugins;
 
-namespace MtB.Tests.TestDoubles
+namespace MtB.Communication.Tests.TestDoubles
 {
     public class ScheduleTask : IScheduleTask
     {

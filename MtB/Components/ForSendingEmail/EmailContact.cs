@@ -16,7 +16,7 @@ namespace MtB.Communication.Components.ForSendingEmail
         }
 
         public Guid ExternalId => _contact.ExternalId;
-        public int SequenceNum => _contact.SequnceNum;
+        public int SequenceNum => _contact.NotificationSequenceNumber;
         public string Email => _contact.Email;
 
         public void Receive(Email email)

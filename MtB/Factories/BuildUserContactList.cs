@@ -1,7 +1,6 @@
 using System;
 using MtB.Communication.Components.ForSendingEmail;
 using MtB.Communication.Components.ForSendingSms;
-using MtB.Communication.Entities;
 using MtB.Communication.Plugins;
 
 namespace MtB.Communication.Factories
@@ -22,13 +21,13 @@ namespace MtB.Communication.Factories
             _userId = userId;
         }
 
-        public SmsContactList GetContactListFor(ReceiveSmsCapability receiveSmsCapability)
+        public SmsContactList With(ReceiveSmsCapability receiveSmsCapability)
         {
             var contacs = _provideContacts.GetAll(_userId);
             return new SmsContactList(contacs, _smsContactFactory);
         }
 
-        public EmailContactList GetContactListFor(ReceiveEmailCapability sms)
+        public EmailContactList With(ReceiveEmailCapability sms)
         {
             var contacs = _provideContacts.GetAll(_userId);
             return new EmailContactList(contacs, _emailContactFactory);

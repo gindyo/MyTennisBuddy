@@ -5,25 +5,25 @@ using MtB.Communication.Components.ForSendingSms;
 
 namespace MtB.Communication.Components.ForNotifyingAllChannels
 {
-    public class ViaAllSupportedDevices
+    public class SendNotification
     {
-        private readonly ViaSms _viaSms;
-        private readonly ViaEmail _viaEmail;
+        private readonly SendSms _sendSms;
+        private readonly SendEmail _sendEmail;
 
-        public ViaAllSupportedDevices(ViaSms viaSms, ViaEmail viaEmail)
+        public SendNotification(SendSms sendSms, SendEmail sendEmail)
         {
-            _viaSms = viaSms;
-            _viaEmail = viaEmail;
+            _sendSms = sendSms;
+            _sendEmail = sendEmail;
         }
-        public void Send(Guid receiverId, string text)
+        public void To(Guid receiverId, string text)
         {
-            _viaEmail.Send(receiverId, new Email(text));
-            _viaSms.Send(receiverId, new Sms(text));
+            _sendEmail.To(receiverId, new Email(text));
+            _sendSms.Send(receiverId, new Sms(text));
         }
-        public void Send(IEnumerable<Guid> receiverIds, string text)
+        public void To(IEnumerable<Guid> receiverIds, string text)
         {
-            _viaEmail.Send(receiverIds, new Email(text));
-            _viaSms.Send(receiverIds, new Sms(text));
+            _sendEmail.To(receiverIds, new Email(text));
+            _sendSms.Send(receiverIds, new Sms(text));
         }
         
     }

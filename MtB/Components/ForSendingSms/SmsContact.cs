@@ -16,7 +16,7 @@ namespace MtB.Communication.Components.ForSendingSms
         }
 
         public Guid ExternalId => _contact.ExternalId;
-        public int SequenceNum => _contact.SequnceNum;
+        public int SequenceNum => _contact.NotificationSequenceNumber;
 
         public void Receive(Sms sms)
         {

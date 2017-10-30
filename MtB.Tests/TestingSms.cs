@@ -7,9 +7,9 @@ using MtB.Communication.Components.ForSendingSms;
 using MtB.Communication.Entities;
 using MtB.Communication.Factories;
 using MtB.Communication.Plugins;
-using MtB.Tests.TestDoubles;
+using MtB.Communication.Tests.TestDoubles;
 
-namespace MtB.Tests
+namespace MtB.Communication.Tests
 {
 
     [TestClass]
@@ -30,7 +30,7 @@ namespace MtB.Tests
             var emaContactFactory = new EmailContactFactory(null);
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
             var userContactsListFactory = new BuildUserContactList(contactListProvider, emaContactFactory, smsContactFactory, userId);
-            var applicationInstance = new ViaSms(userContactsListFactory, null);
+            var applicationInstance = new SendSms(userContactsListFactory, null);
             var app = applicationInstance;
 
             app.Send(receiverId, sms);
@@ -58,7 +58,7 @@ namespace MtB.Tests
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
             var userContactsListFactory =
                 new BuildUserContactList(contactListProvider, null, smsContactFactory, userId);
-            var app = new ViaSms(userContactsListFactory, new TaskSchedulerDouble());
+            var app = new SendSms(userContactsListFactory, new TaskSchedulerDouble());
 
             app.Send(new[] {receiverId, receiverId2}, sms);
             messageTarnsmitter.Verify();

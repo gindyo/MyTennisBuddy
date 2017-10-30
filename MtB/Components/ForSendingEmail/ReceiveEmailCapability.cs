@@ -1,6 +1,8 @@
-namespace MtB.Communication.Entities
+using MtB.Communication.Entities;
+
+namespace MtB.Communication.Components.ForSendingEmail
 {
-    public struct ReceiveEmailCapability : ICapability
+    public class ReceiveEmailCapability : ICapability
     {
     }
 }

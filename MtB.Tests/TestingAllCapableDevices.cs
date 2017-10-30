@@ -2,16 +2,15 @@ using System;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using MtB.Communication.Components;
 using MtB.Communication.Components.ForNotifyingAllChannels;
 using MtB.Communication.Components.ForSendingEmail;
 using MtB.Communication.Components.ForSendingSms;
 using MtB.Communication.Entities;
 using MtB.Communication.Factories;
 using MtB.Communication.Plugins;
-using MtB.Tests.TestDoubles;
+using MtB.Communication.Tests.TestDoubles;
 
-namespace MtB.Tests
+namespace MtB.Communication.Tests
 {
     [TestClass]
     public class TestingAllCapableDevices
@@ -41,13 +40,14 @@ namespace MtB.Tests
 
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
             var userContactsListFactory = new BuildUserContactList(contactListProvider, emaContactFactory, smsContactFactory, userId);
-            var emailSender = new ViaEmail(userContactsListFactory, null);
-            var smsSender = new ViaSms(userContactsListFactory, null);
-            var notificationSender = new ViaAllSupportedDevices(smsSender, emailSender);
+            var emailSender = new SendEmail(userContactsListFactory, null);
+            var smsSender = new SendSms(userContactsListFactory, null);
+            var notificationSender = new SendNotification(smsSender, emailSender);
 
-            notificationSender.Send(receiverId, messageText);
+            notificationSender.To(receiverId, messageText);
             smsTransmitter.Verify();
         }
+
         [TestMethod]
         public void TestSendingSms()
         {
@@ -72,11 +72,11 @@ namespace MtB.Tests
 
             var contactListProvider = new ProvideContactsDouble(new[] {contact}.AsQueryable());
             var userContactsListFactory = new BuildUserContactList(contactListProvider, emaContactFactory, smsContactFactory, userId);
-            var viaEmail = new ViaEmail(userContactsListFactory, null);
-            var viaSms = new ViaSms(userContactsListFactory, null);
-            var viaAllSupported = new ViaAllSupportedDevices(viaSms, viaEmail);
+            var viaEmail = new SendEmail(userContactsListFactory, null);
+            var viaSms = new SendSms(userContactsListFactory, null);
+            var viaAllSupported = new SendNotification(viaSms, viaEmail);
 
-            viaAllSupported.Send(receiverId, messageText);
+            viaAllSupported.To(receiverId, messageText);
             smsTransmitter.Verify();
         }
     }
