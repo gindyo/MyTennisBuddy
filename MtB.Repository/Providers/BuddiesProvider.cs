@@ -6,8 +6,9 @@ using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using MtB.BuddyList;
+using MtB.Repository.Entities;
 
-namespace MtB.Repository
+namespace MtB.Repository.Providers
 {
     public class BuddiesProvider : IProvideBuddies
     {

@@ -1,4 +1,5 @@
 ﻿using System;
+using MtB.CommonValueObjects;
 
 namespace MtB.BuddyList
 {

@@ -12,10 +12,9 @@ namespace MtB.Repository
 
         public  ICapability ToICapability()
         {
-            var fullname = typeof(ReceiveEmailCapability).FullName;
-            if (Type == "MtB.Communication.Components.ForSendingEmail.ReceiveEmailCapability") 
+            if (Type == typeof(ReceiveEmailCapability).FullName) 
                 return new ReceiveEmailCapability();
-            if (Type == "MtB.Communication.Components.ForSendingEmail.ReceiveSmsCapability") 
+            if (Type == typeof(ReceiveSmsCapability).FullName) 
                 return new ReceiveSmsCapability();
             return null;
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MtB.Communication.Components.ForSendingEmail;
+using MtB.Repository.Entities;
 
 namespace MtB.Repository.Tests
 {
@@ -14,7 +15,6 @@ namespace MtB.Repository.Tests
         {
             FriendsProvider friendsProvider = new FriendsProvider(); 
             var newGuid = SeedDb( friendsProvider);
-
             var buddiesProvider = new BuddiesProvider(friendsProvider);
             var buddy = buddiesProvider.First(b => b.ExternalId == newGuid);
             Assert.AreEqual("Dimitar Ginev", buddy.Name.ToString());
@@ -26,7 +26,6 @@ namespace MtB.Repository.Tests
         {
             FriendsProvider friendsProvider = new FriendsProvider(); 
             var newGuid = SeedDb( friendsProvider);
-
             var contactsProvider = new ContactsProvider(friendsProvider);
             var contact = contactsProvider.First(b => b.ExternalId == newGuid);
             Assert.IsTrue(contact.ComunicationCapabilities.Any(c=> c is ReceiveEmailCapability));

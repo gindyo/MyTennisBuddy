@@ -4,4 +4,8 @@
     <TargetFramework>netcoreapp2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MtB.CommonValueObjects\MtB.CommonValueObjects.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -5,8 +5,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using MtB.Communication.Entities;
 using MtB.Communication.Plugins;
+using MtB.Repository.Entities;
 
-namespace MtB.Repository
+namespace MtB.Repository.Providers
 {
     public class ContactsProvider : IProvideContacts
     {
