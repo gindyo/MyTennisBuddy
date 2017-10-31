@@ -16,6 +16,9 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MtB.Repository\MtB.Repository.csproj" />
+    <ProjectReference Include="..\MtB.BuddyList\MtB.BuddyList.csproj" />
+    <ProjectReference Include="..\MtB.CommonValueObjects\MtB.CommonValueObjects.csproj" />
+    <ProjectReference Include="..\MtB\MtB.Communication.csproj" />
   </ItemGroup>
 
   <ItemGroup>

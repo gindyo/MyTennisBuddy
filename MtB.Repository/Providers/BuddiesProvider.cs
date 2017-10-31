@@ -35,7 +35,7 @@ namespace MtB.Repository.Providers
         }
 
         public Type ElementType => typeof(Buddy);
-        public Expression Expression => _friendsProvider.Friends.Select(f=> f.ToBuddy()).AsQueryable().Expression;
+        public Expression Expression => _friendsProvider.Friends.Select(f => f.ToBuddy()).AsQueryable().Expression;
         public IQueryProvider Provider => _friendsProvider.Friends.Select(f => f.ToBuddy()).AsQueryable().Provider;
         public void Save(Buddy buddy)
         {
@@ -43,7 +43,7 @@ namespace MtB.Repository.Providers
         }
     }
 
-    public class FriendsProvider: DbContext
+    public class FriendsProvider : DbContext
     {
         public DbSet<Friend> Friends { get; set; }
         public DbSet<CommunicationCapability> CommunicationCapabilities { get; set; }
@@ -51,7 +51,8 @@ namespace MtB.Repository.Providers
         {
             base.OnConfiguring(optionsBuilder);
             var configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
-            optionsBuilder.UseSqlServer(configuration["Configuration:BuddiesProvider"]);
+            //optionsBuilder.UseSqlServer(configuration["Configuration:BuddiesProvider"]);
+            optionsBuilder.UseSqlite(configuration["Configuration:BuddiesProviderSqlite"]);
         }
     }
 }
