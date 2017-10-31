@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Storage.Internal;
 using MtB.Repository;
 using System;
+using MtB.Repository.Providers;
 
 namespace MtB.Repository.Migrations
 {

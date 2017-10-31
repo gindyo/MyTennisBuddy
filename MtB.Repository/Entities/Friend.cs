@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using MtB.BuddyList;
 using MtB.CommonValueObjects;
-
 using MtB.Communication.Entities;
 
-namespace MtB.Repository
+namespace MtB.Repository.Entities
 {
     public class Friend
     {

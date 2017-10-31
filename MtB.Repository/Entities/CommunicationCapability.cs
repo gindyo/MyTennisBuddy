@@ -2,7 +2,7 @@
 using MtB.Communication.Components.ForSendingSms;
 using MtB.Communication.Entities;
 
-namespace MtB.Repository
+namespace MtB.Repository.Entities
 {
     public class CommunicationCapability
     {
