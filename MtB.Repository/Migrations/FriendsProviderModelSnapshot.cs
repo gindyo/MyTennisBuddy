@@ -10,7 +10,7 @@ using System;
 
 namespace MtB.Repository.Migrations
 {
-    [DbContext(typeof(FriendsProvider))]
+    [DbContext(typeof(MtbStore))]
     partial class FriendsProviderModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

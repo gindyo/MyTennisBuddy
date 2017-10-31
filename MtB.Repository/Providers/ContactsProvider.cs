@@ -11,9 +11,9 @@ namespace MtB.Repository.Providers
 {
     public class ContactsProvider : IProvideContacts
     {
-        private readonly FriendsProvider _friendsProvider;
+        private readonly MtbStore _friendsProvider;
 
-        public ContactsProvider(FriendsProvider friendsProvider)
+        public ContactsProvider(MtbStore friendsProvider)
         {
             _friendsProvider = friendsProvider;
         }

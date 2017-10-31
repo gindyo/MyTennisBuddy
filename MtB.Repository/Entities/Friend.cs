@@ -9,6 +9,15 @@ namespace MtB.Repository.Entities
 {
     public class Friend
     {
+        public Friend() { }
+        public Friend(Buddy buddy)
+        {
+            FirstName = buddy.Name.First;
+            LastName = buddy.Name.Last;
+            NotificationSequenceNumber = buddy.NotificationSequenceNumber;
+            ExternalId = buddy.ExternalId;
+        }
+
         public long Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -23,7 +32,8 @@ namespace MtB.Repository.Entities
             return new Buddy(ExternalId)
             {
                 ContactInfo =  new ContactInfo(CellPhoneNmuber, Email),
-                Name = new Name(FirstName, LastName)
+                Name = new Name(FirstName, LastName),
+                NotificationSequenceNumber = NotificationSequenceNumber
             };
         }
         public Contact ToContact()

@@ -4,7 +4,7 @@ using MtB.Repository.Entities;
 
 namespace MtB.Repository.Providers
 {
-    public class FriendsProvider : DbContext
+    public class MtbStore : DbContext
     {
         public DbSet<Friend> Friends { get; set; }
         public DbSet<CommunicationCapability> CommunicationCapabilities { get; set; }

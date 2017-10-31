@@ -15,7 +15,7 @@ namespace MtB.Repository.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            FriendsProvider friendsProvider = new FriendsProvider(); 
+            var friendsProvider = new MtbStore(); 
             var newGuid = SeedDb( friendsProvider);
             var buddiesProvider = new BuddiesProvider(friendsProvider);
             var buddy = buddiesProvider.First(b => b.ExternalId == newGuid);
@@ -26,7 +26,7 @@ namespace MtB.Repository.Tests
         [TestMethod]
         public void TestMethod2()
         {
-            FriendsProvider friendsProvider = new FriendsProvider(); 
+            var friendsProvider = new MtbStore(); 
             var newGuid = SeedDb( friendsProvider);
             var contactsProvider = new ContactsProvider(friendsProvider);
             var contact = contactsProvider.First(b => b.ExternalId == newGuid);
@@ -35,18 +35,21 @@ namespace MtB.Repository.Tests
         }
 
 
-        private static Guid SeedDb( FriendsProvider friendsProvider)
+        private static Guid SeedDb( MtbStore friendsProvider)
         {
             var newGuid = Guid.NewGuid();
             var friend = new Friend()
             {
+                
                 ExternalId = newGuid,
                 FirstName = "Dimitar",
                 LastName = "Ginev",
                 CellPhoneNmuber = "23452345",
+                Email = "dimitar@ginev.com",
+                NotificationSequenceNumber = 1,
                 ComunicationCapabilities = new List<CommunicationCapability>()
                 {
-                    new CommunicationCapability() {Type = typeof(ReceiveEmailCapability).ToString()}
+					new CommunicationCapability() {Type = typeof(ReceiveEmailCapability).ToString()}
                 }
             };
             friendsProvider.Friends.Add(friend);
@@ -55,3 +58,4 @@ namespace MtB.Repository.Tests
         }
     }
 }
+    

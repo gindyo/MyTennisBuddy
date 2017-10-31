@@ -10,7 +10,7 @@ using System;
 
 namespace MtB.Repository.Migrations
 {
-    [DbContext(typeof(FriendsProvider))]
+    [DbContext(typeof(MtbStore))]
     [Migration("20171031010932_CreateInitial")]
     partial class CreateInitial
     {
