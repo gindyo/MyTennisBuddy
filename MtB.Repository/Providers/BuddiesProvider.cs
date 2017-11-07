@@ -5,7 +5,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using MtB.BuddyList;
+using MtB.BuddyList.Entities;
+using MtB.BuddyList.Plugins;
 using MtB.Repository.Entities;
 
 namespace MtB.Repository.Providers

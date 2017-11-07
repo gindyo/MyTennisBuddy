@@ -1,7 +1,7 @@
 ﻿using System;
 using MtB.CommonValueObjects;
 
-namespace MtB.BuddyList
+namespace MtB.BuddyList.Entities
 {
 
     public class Buddy
@@ -13,7 +13,7 @@ namespace MtB.BuddyList
         public Guid ExternalId { get; }
         public Name Name { get; set; }
         public ContactInfo ContactInfo { get; set; }
-        public int NotificationSequenceNumber { get; set; }
+        public int Position { get; set; }
         public override bool Equals(object obj)
         {
             return Equals(obj as Buddy);

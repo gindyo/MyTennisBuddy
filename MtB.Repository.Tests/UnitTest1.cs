@@ -5,6 +5,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MtB.Communication.Components.ForSendingEmail;
 using MtB.Repository.Entities;
 using MtB.Repository.Providers;
+using MtB.BuddyList.Entities;
 
 namespace MtB.Repository.Tests
 {

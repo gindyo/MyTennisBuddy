@@ -52,7 +52,7 @@ namespace MtB.Repository.Migrations
 
                     b.Property<string>("LastName");
 
-                    b.Property<int>("NotificationSequenceNumber");
+                    b.Property<int>("Position");
 
                     b.HasKey("Id");
 

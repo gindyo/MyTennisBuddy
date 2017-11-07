@@ -1,4 +1,4 @@
-﻿namespace MtB.BuddyList
+﻿namespace MtB.CommonValueObjects
 {
     public struct ContactInfo
     {

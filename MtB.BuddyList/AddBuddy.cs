@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using MtB.BuddyList.Entities;
+using MtB.BuddyList.Plugins;
 
 namespace MtB.BuddyList
 {
@@ -15,7 +17,7 @@ namespace MtB.BuddyList
 
         public void New(Buddy buddy)
         {
-            buddy.NotificationSequenceNumber = _provideBudies.Max(b=> b.NotificationSequenceNumber) + 1;
+            buddy.Position = _provideBudies.Max(b=> b.Position) + 1;
             _storeBuddies.Save(buddy);
         }
     }

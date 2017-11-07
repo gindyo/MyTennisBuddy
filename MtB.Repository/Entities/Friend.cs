@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MtB.BuddyList;
+using MtB.BuddyList.Entities;
 using MtB.CommonValueObjects;
 using MtB.Communication.Entities;
 
