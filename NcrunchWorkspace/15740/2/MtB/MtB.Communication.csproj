@@ -1,0 +1,35 @@
+﻿<Project DefaultTargets="Build;NCrunchOutputDataQuery" Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Remove="Components\ForSendingEmail\ContactFactory.cs" />
+    <Compile Remove="Components\ForSendingEmail\SendEmailCapability.cs" />
+    <Compile Remove="EmailModule.cs" />
+    <Compile Remove="IBuildContact.cs" />
+    <Compile Remove="ICapability.cs" />
+    <Compile Remove="ITransmitNotification.cs" />
+    <Compile Remove="NewTaskSchedulerDouble.cs" />
+    <Compile Remove="SendSmsCapability.cs" />
+    <Compile Remove="SmsModule.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Hangfire" Version="1.6.17" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\15740\1\MtB.CommonValueObjects\bin\Debug\netcoreapp2.0\MtB.CommonValueObjects.dll" />
+  </ItemGroup>
+  <Target Name="NCrunchOutputDataQuery" DependsOnTargets="">
+    <Message Text="#Expression_6ad6a91a35654194b5e8be5ba6fc8ab4=$(OutDir)$(TargetName)$(TargetExt)" />
+    <Message Text="#Expression_ee9a54bd95244510aacdc76e09f269a1=$(Configuration)" />
+    <Message Text="#Expression_2f70a84ba6634535a5a68725e262de8f=$(TargetName)" />
+    <Message Text="#$TargetFrameworkDirectory=;$(TargetFrameworkDirectory)" />
+    <Message Text="#ReferencePath=;@(ReferencePath)" />
+    <Message Text="#ReferenceCopyLocalPaths=;@(ReferenceCopyLocalPaths)" />
+    <Message Text="#CopiedFiles_SourceItemsToCopyToOutputDirectoryAlways=@(_SourceItemsToCopyToOutputDirectoryAlways)|@(_SourceItemsToCopyToOutputDirectoryAlways->'$(OutDir)%(TargetPath)')" Condition="'@(_SourceItemsToCopyToOutputDirectoryAlways->'$(OutDir)%(TargetPath)')'!=''" />
+    <Message Text="#CopiedFiles_SourceItemsToCopyToOutputDirectory=@(_SourceItemsToCopyToOutputDirectory)|@(_SourceItemsToCopyToOutputDirectory->'$(OutDir)%(TargetPath)')" Condition="'@(_SourceItemsToCopyToOutputDirectory->'$(OutDir)%(TargetPath)')'!=''" />
+  </Target>
+  <Target Name="NCrunchPrepareForBuild" DependsOnTargets="">
+  </Target>
+</Project>
