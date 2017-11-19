@@ -1,0 +1,28 @@
+﻿<Project DefaultTargets="Build;NCrunchOutputDataQuery" Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0-preview-20170628-02" />
+    <PackageReference Include="Moq" Version="4.7.142" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.1.18" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.1.18" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\1\MtB.CommonValueObjects\bin\Debug\netcoreapp2.0\MtB.CommonValueObjects.dll" />
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\43\MtB.BuddyList\bin\Debug\netcoreapp2.0\MtB.BuddyList.dll" />
+  </ItemGroup>
+  <Target Name="NCrunchOutputDataQuery" DependsOnTargets="">
+    <Message Text="#Expression_80a5c906a9d14a51932bb662cc707294=$(OutDir)$(TargetName)$(TargetExt)" />
+    <Message Text="#Expression_d5511e7a256e446ca13298ae35bd822c=$(Configuration)" />
+    <Message Text="#Expression_e713b3a2a2554a0a99b5f4bbb5d850f5=$(TargetName)" />
+    <Message Text="#$TargetFrameworkDirectory=;$(TargetFrameworkDirectory)" />
+    <Message Text="#ReferencePath=;@(ReferencePath)" />
+    <Message Text="#ReferenceCopyLocalPaths=;@(ReferenceCopyLocalPaths)" />
+    <Message Text="#CopiedFiles_SourceItemsToCopyToOutputDirectoryAlways=@(_SourceItemsToCopyToOutputDirectoryAlways)|@(_SourceItemsToCopyToOutputDirectoryAlways->'$(OutDir)%(TargetPath)')" Condition="'@(_SourceItemsToCopyToOutputDirectoryAlways->'$(OutDir)%(TargetPath)')'!=''" />
+    <Message Text="#CopiedFiles_SourceItemsToCopyToOutputDirectory=@(_SourceItemsToCopyToOutputDirectory)|@(_SourceItemsToCopyToOutputDirectory->'$(OutDir)%(TargetPath)')" Condition="'@(_SourceItemsToCopyToOutputDirectory->'$(OutDir)%(TargetPath)')'!=''" />
+  </Target>
+  <Target Name="NCrunchPrepareForBuild" DependsOnTargets="">
+  </Target>
+</Project>

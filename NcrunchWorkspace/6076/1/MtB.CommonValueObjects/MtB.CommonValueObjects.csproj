@@ -1,0 +1,17 @@
+﻿<Project DefaultTargets="Build;NCrunchOutputDataQuery" Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <Target Name="NCrunchOutputDataQuery" DependsOnTargets="">
+    <Message Text="#Expression_c6bf58dcbbb84fa59f212e5672c6c710=$(OutDir)$(TargetName)$(TargetExt)" />
+    <Message Text="#Expression_2d14cf6ca2ca4bb18fb4a715d3b76bd8=$(Configuration)" />
+    <Message Text="#Expression_686b5bde95ed414690655fb7c0e0bf98=$(TargetName)" />
+    <Message Text="#$TargetFrameworkDirectory=;$(TargetFrameworkDirectory)" />
+    <Message Text="#ReferencePath=;@(ReferencePath)" />
+    <Message Text="#ReferenceCopyLocalPaths=;@(ReferenceCopyLocalPaths)" />
+    <Message Text="#CopiedFiles_SourceItemsToCopyToOutputDirectoryAlways=@(_SourceItemsToCopyToOutputDirectoryAlways)|@(_SourceItemsToCopyToOutputDirectoryAlways->'$(OutDir)%(TargetPath)')" Condition="'@(_SourceItemsToCopyToOutputDirectoryAlways->'$(OutDir)%(TargetPath)')'!=''" />
+    <Message Text="#CopiedFiles_SourceItemsToCopyToOutputDirectory=@(_SourceItemsToCopyToOutputDirectory)|@(_SourceItemsToCopyToOutputDirectory->'$(OutDir)%(TargetPath)')" Condition="'@(_SourceItemsToCopyToOutputDirectory->'$(OutDir)%(TargetPath)')'!=''" />
+  </Target>
+  <Target Name="NCrunchPrepareForBuild" DependsOnTargets="">
+  </Target>
+</Project>

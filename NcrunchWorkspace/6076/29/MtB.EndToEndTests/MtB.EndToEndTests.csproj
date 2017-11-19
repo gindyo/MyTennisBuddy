@@ -1,0 +1,36 @@
+﻿<Project DefaultTargets="Build;NCrunchOutputDataQuery" Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="..\MtB.Repository\appsettings.json" Link="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0-preview-20170628-02" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.1.18" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.1.18" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\11\MtB.Repository\bin\Debug\netcoreapp2.0\MtB.Repository.dll" />
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\17\MtB.Web\bin\Debug\netcoreapp2.0\MtB.Web.dll" />
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\1\MtB.CommonValueObjects\bin\Debug\netcoreapp2.0\MtB.CommonValueObjects.dll" />
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\27\MtB.BuddyList\bin\Debug\netcoreapp2.0\MtB.BuddyList.dll" />
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\2\MtB\bin\Debug\netcoreapp2.0\MtB.Communication.dll" />
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\7\MtB.DbTestUtilities\bin\Debug\netcoreapp2.0\MtB.DbTestUtilities.dll" />
+  </ItemGroup>
+  <Target Name="NCrunchOutputDataQuery" DependsOnTargets="">
+    <Message Text="#Expression_2871b67d67f04188919ca8995a3c4ea4=$(OutDir)$(TargetName)$(TargetExt)" />
+    <Message Text="#Expression_af7cb874510d4ad9aeb7780af5237558=$(Configuration)" />
+    <Message Text="#Expression_a2eae44c3fec4a2a98dec01959a2f605=$(TargetName)" />
+    <Message Text="#$TargetFrameworkDirectory=;$(TargetFrameworkDirectory)" />
+    <Message Text="#ReferencePath=;@(ReferencePath)" />
+    <Message Text="#ReferenceCopyLocalPaths=;@(ReferenceCopyLocalPaths)" />
+    <Message Text="#CopiedFiles_SourceItemsToCopyToOutputDirectoryAlways=@(_SourceItemsToCopyToOutputDirectoryAlways)|@(_SourceItemsToCopyToOutputDirectoryAlways->'$(OutDir)%(TargetPath)')" Condition="'@(_SourceItemsToCopyToOutputDirectoryAlways->'$(OutDir)%(TargetPath)')'!=''" />
+    <Message Text="#CopiedFiles_SourceItemsToCopyToOutputDirectory=@(_SourceItemsToCopyToOutputDirectory)|@(_SourceItemsToCopyToOutputDirectory->'$(OutDir)%(TargetPath)')" Condition="'@(_SourceItemsToCopyToOutputDirectory->'$(OutDir)%(TargetPath)')'!=''" />
+  </Target>
+  <Target Name="NCrunchPrepareForBuild" DependsOnTargets="">
+  </Target>
+</Project>

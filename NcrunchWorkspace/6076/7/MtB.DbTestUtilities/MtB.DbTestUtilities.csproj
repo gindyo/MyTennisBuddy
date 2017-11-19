@@ -1,0 +1,23 @@
+﻿<Project DefaultTargets="Build;NCrunchOutputDataQuery" Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\1\MtB.CommonValueObjects\bin\Debug\netcoreapp2.0\MtB.CommonValueObjects.dll" />
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\2\MtB\bin\Debug\netcoreapp2.0\MtB.Communication.dll" />
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\36\MtB.BuddyList\bin\Debug\netcoreapp2.0\MtB.BuddyList.dll" />
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\6\MtB.Repository\bin\Debug\netcoreapp2.0\MtB.Repository.dll" />
+  </ItemGroup>
+  <Target Name="NCrunchOutputDataQuery" DependsOnTargets="">
+    <Message Text="#Expression_2fdf40e467da4655b08252c22217cf3b=$(OutDir)$(TargetName)$(TargetExt)" />
+    <Message Text="#Expression_7008a0c0bfde4166ac6122e3bd4c8644=$(Configuration)" />
+    <Message Text="#Expression_5e1ceb0409784e67975ef0af69a40d81=$(TargetName)" />
+    <Message Text="#$TargetFrameworkDirectory=;$(TargetFrameworkDirectory)" />
+    <Message Text="#ReferencePath=;@(ReferencePath)" />
+    <Message Text="#ReferenceCopyLocalPaths=;@(ReferenceCopyLocalPaths)" />
+    <Message Text="#CopiedFiles_SourceItemsToCopyToOutputDirectoryAlways=@(_SourceItemsToCopyToOutputDirectoryAlways)|@(_SourceItemsToCopyToOutputDirectoryAlways->'$(OutDir)%(TargetPath)')" Condition="'@(_SourceItemsToCopyToOutputDirectoryAlways->'$(OutDir)%(TargetPath)')'!=''" />
+    <Message Text="#CopiedFiles_SourceItemsToCopyToOutputDirectory=@(_SourceItemsToCopyToOutputDirectory)|@(_SourceItemsToCopyToOutputDirectory->'$(OutDir)%(TargetPath)')" Condition="'@(_SourceItemsToCopyToOutputDirectory->'$(OutDir)%(TargetPath)')'!=''" />
+  </Target>
+  <Target Name="NCrunchPrepareForBuild" DependsOnTargets="">
+  </Target>
+</Project>
