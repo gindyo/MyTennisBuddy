@@ -1,4 +1,0 @@
-<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Target Name="_CopyFilesMarkedCopyLocal"></Target>
-  <Target Name="_GenerateAppxPackageRecipe"></Target>
-</Project>
