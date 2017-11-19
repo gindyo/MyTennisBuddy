@@ -21,7 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MtB.BuddyList\MtB.BuddyList.csproj" />
     <ProjectReference Include="..\MtB.CommonValueObjects\MtB.CommonValueObjects.csproj" />
-    <ProjectReference Include="..\MtB.DbTestUtilities\MtB.DbTestUtilities.csproj" />
+    <ProjectReference Include="..\MtB.DbTestUtilities\MtB.Tests.DbUtilities.csproj" />
     <ProjectReference Include="..\MtB.Web\MtB.Web.csproj" />
     <ProjectReference Include="..\MtB\MtB.Communication.csproj" />
     <ProjectReference Include="..\MtB.Repository\MtB.Repository.csproj" />

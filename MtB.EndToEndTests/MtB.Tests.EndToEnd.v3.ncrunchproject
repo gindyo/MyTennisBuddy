@@ -3,5 +3,8 @@
     <AdditionalFilesToIncludeForProject>
       <Value>..\mtb.db</Value>
     </AdditionalFilesToIncludeForProject>
+    <HiddenComponentWarnings>
+      <Value>UnnecessaryFileIncludeWarning</Value>
+    </HiddenComponentWarnings>
   </Settings>
 </ProjectConfiguration>
