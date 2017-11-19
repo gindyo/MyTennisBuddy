@@ -1,0 +1,20 @@
+                 MatchMaker
+                     |
+                     |
+ AskBuddyToPlay----->|            ContactsFactory 
+                     |
+                     |---GetContact--->|
+                     |                 |
+                     |<-----Contact----|             Contact
+                     |                 |                 |
+                     |                                   |
+                     |                                   |
+                     |-----------ReceiveNotification---->|           ITransimtNotificaiton        
+                     |                                   |                   |
+                     |                                   |-----Transmit----->|
+                     |                                   |                   |                 IStoreSentNotifications     
+                     |                                   |                   |                           |
+                     |                                   |                   |-----StoreNotification---->|
+                     |                                   |                   |                           |
+
+

@@ -1,0 +1,16 @@
+            MatchMaker
+                |
+                |
+--GetAMatch---->|            ContactsFactory 
+                |
+                |---GetContacts-->|
+                |                 |
+                |<-----Contacts---|            
+                |                            RequestScheduler 
+                |                                  |
+                |------ScheduleRequests----------->|
+                |                                  |
+                |                                  Every.5.minutes
+                |                                       |
+                |<-----------AskABuddyForAMatch---------|
+

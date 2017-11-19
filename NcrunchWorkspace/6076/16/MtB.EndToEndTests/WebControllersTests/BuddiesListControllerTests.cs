@@ -23,7 +23,8 @@ namespace MtB.EndToEndTests
             BuddiesProvider provider = new BuddiesProvider(new MtbStore(), userId);
             BuddyStore bstore = new BuddyStore(new MtbStore(), userId);
             ListBuddies listBuddies = new ListBuddies(provider, bstore);
-            var controller = new BuddiesListController(listBuddies);
+            IAddBuddy addBuddy = new AddBuddy(bstore, provider);
+            var controller = new BuddiesListController(listBuddies, addBuddy);
             var buddiesJson = controller.Buddies();
             Assert.IsNotNull((buddiesJson.Value as IEnumerable<WebBuddy>).ToList().Single(b=> friend.ExternalId == b.externalId));
         }
@@ -34,8 +35,9 @@ namespace MtB.EndToEndTests
             MtbStore store = new MtbStore();
             BuddiesProvider provider = new BuddiesProvider(new MtbStore(), userId);
             BuddyStore buddyStore = new BuddyStore(store, userId);
-            ListBuddies listBuddies = new ListBuddies(provider, buddyStore);
-            var controller = new BuddiesListController(listBuddies;
+            ListBuddies listBuddies = new ListBuddies(provider, b);
+            IAddBuddy addBuddy = new AddBuddy(bstore, provider);
+            var controller = new BuddiesListController(listBuddies, addBuddy);
             WebBuddy buddy = new WebBuddy() { cellPhoneNumber = "12345", email = "email@bla.com", firstName = "dimitar"};
             var buddiesJson = controller.New(buddy);
             var buddies = controller.Buddies().Value as IEnumerable<WebBuddy>;

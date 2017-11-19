@@ -26,7 +26,7 @@
     <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\11\MtB.Repository\bin\Debug\netcoreapp2.0\MtB.Repository.dll" />
     <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\1\MtB.CommonValueObjects\bin\Debug\netcoreapp2.0\MtB.CommonValueObjects.dll" />
     <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\2\MtB\bin\Debug\netcoreapp2.0\MtB.Communication.dll" />
-    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\43\MtB.BuddyList\bin\Debug\netcoreapp2.0\MtB.BuddyList.dll" />
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\51\MtB.BuddyList\bin\Debug\netcoreapp2.0\MtB.BuddyList.dll" />
   </ItemGroup>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->
@@ -55,9 +55,9 @@
     </ItemGroup>
   </Target>
   <Target Name="NCrunchOutputDataQuery" DependsOnTargets="">
-    <Message Text="#Expression_57df534a1a1045a0a23fc1f84d478389=$(OutDir)$(TargetName)$(TargetExt)" />
-    <Message Text="#Expression_4b5fb3da451f42de870d8335c0b722df=$(Configuration)" />
-    <Message Text="#Expression_dfe1c9e316674aad887879d6d197bf7e=$(TargetName)" />
+    <Message Text="#Expression_9bb02ec3e453482bbf19e1835dfed254=$(OutDir)$(TargetName)$(TargetExt)" />
+    <Message Text="#Expression_d53641a846924a34ac80d20d8706978c=$(Configuration)" />
+    <Message Text="#Expression_aeb8f6db86874d6d8087d5b8f7175cc9=$(TargetName)" />
     <Message Text="#$TargetFrameworkDirectory=;$(TargetFrameworkDirectory)" />
     <Message Text="#ReferencePath=;@(ReferencePath)" />
     <Message Text="#ReferenceCopyLocalPaths=;@(ReferenceCopyLocalPaths)" />

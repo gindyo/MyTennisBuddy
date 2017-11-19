@@ -17,11 +17,9 @@ namespace MtB.BuddyList.Tests
             Guid buddyGuid = Guid.NewGuid(); 
             Buddy buddy = new Buddy(buddyGuid);
             var store = new Mock<IStoreBuddies>();
-            var provider = new Mock<IProvideBuddies>();
-            provider.Setup(p => p.Count()).Returns(2);
 
-            IAddBuddy addBuddy = new ListBuddies(provider.Object, store.Object);
-            list.New(buddy);
+            var addBuddy = new AddBuddy(store.Object, Buddies);
+            addBuddy.New(buddy);
 
             store.Verify(s => s.Update(It.Is<Buddy>(b => b.Position == 3)) );
         }

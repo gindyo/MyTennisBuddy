@@ -10,9 +10,12 @@ namespace MtB.Web.Controllers
     public partial class BuddiesListController : Controller
     {
         public IListBuddies ListBuddies { get; }
-        public BuddiesListController(IListBuddies listBuddies)
+        public IAddBuddy AddBuddy { get; }
+
+        public BuddiesListController(IListBuddies listBuddies, IAddBuddy addBuddy)
         {
             ListBuddies = listBuddies;
+            AddBuddy = addBuddy;
         }
 
         [HttpGet("[action]")]
@@ -25,7 +28,7 @@ namespace MtB.Web.Controllers
         {
             try
             {
-                ListBuddies.New(new NewBuddy(buddy));
+                AddBuddy.New(new NewBuddy(buddy));
             }
             catch (System.Exception)
             {
@@ -37,7 +40,7 @@ namespace MtB.Web.Controllers
         [HttpPost("[action]")]
         public ActionResult Update([FromBody]WebBuddy buddy)
         {
-            ListBuddies.Update(buddy);
+            AddBuddy.Update(buddy);
             return new CreatedResult("", null);
         }
     }

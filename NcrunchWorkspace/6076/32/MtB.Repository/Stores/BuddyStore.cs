@@ -36,5 +36,10 @@ namespace MtB.Repository.Stores
             _mtbStore.SaveChanges();
 
         }
+
+        public void Save(Buddy buddy)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

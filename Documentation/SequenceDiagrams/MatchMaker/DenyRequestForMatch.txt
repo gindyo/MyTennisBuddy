@@ -1,0 +1,6 @@
+                    MatchMaker
+                        |
+--DenyRequestForMatch-->|                       NotificationScheduler
+                        |                               |
+                        |----SendNextRequestNow-------->|
+                        |                               |

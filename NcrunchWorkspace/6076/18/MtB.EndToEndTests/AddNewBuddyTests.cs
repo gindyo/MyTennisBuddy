@@ -15,8 +15,9 @@ namespace MtB.EndToEndTests
         public void TestAddingNewBuddy()
         {
             var userId = new Guid("9824A957-7056-4659-BF81-3B70F6329E3A");
-            var buddyList = new AddBuddy(new BuddyStore(new MtbStore(), userId), new BuddiesProvider(new MtbStore(), userId));
-            buddyList.New(new Buddy(Guid.NewGuid()){Name = new Name("Dimitar", "Ginev"), ContactInfo = new ContactInfo("","")});
+            var addBuddy = new AddBuddy(new BuddyStore(new MtbStore(), userId), new BuddiesProvider(new MtbStore(), userId));
+            Buddy buddy = new Buddy(Guid.NewGuid()) { Name = new Name("Dimitar", "Ginev"), ContactInfo = new ContactInfo("", "") };
+            addBuddy.New(new NewBuddy(buddy));
         }
     }
 }

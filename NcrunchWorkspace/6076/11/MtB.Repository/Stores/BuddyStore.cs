@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using MtB.BuddyList;
 using MtB.BuddyList.Entities;
 using MtB.BuddyList.Plugins;
@@ -22,13 +21,11 @@ namespace MtB.Repository.Stores
 
         public void Update(Buddy buddy)
         {
-            _mtbStore.Update(new Friend(buddy) { UserId = UserId });
+            Friend friend = new Friend(buddy) { UserId = UserId };
+            _mtbStore.Entry(friend).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _mtbStore.SaveChanges();
         }
 
-        public void Save(IEnumerable<Buddy> affected)
-        {
-        }
 
         public void Save(NewBuddy buddy)
         {

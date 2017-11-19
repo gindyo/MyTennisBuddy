@@ -23,10 +23,10 @@
     <Content Include="..\MtB.Repository\appsettings.json" Link="appsettings.json" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\11\MtB.Repository\bin\Debug\netcoreapp2.0\MtB.Repository.dll" />
     <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\1\MtB.CommonValueObjects\bin\Debug\netcoreapp2.0\MtB.CommonValueObjects.dll" />
     <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\2\MtB\bin\Debug\netcoreapp2.0\MtB.Communication.dll" />
-    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\43\MtB.BuddyList\bin\Debug\netcoreapp2.0\MtB.BuddyList.dll" />
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\50\MtB.BuddyList\bin\Debug\netcoreapp2.0\MtB.BuddyList.dll" />
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\6\MtB.Repository\bin\Debug\netcoreapp2.0\MtB.Repository.dll" />
   </ItemGroup>
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">
     <!-- Ensure Node.js is installed -->
@@ -55,9 +55,9 @@
     </ItemGroup>
   </Target>
   <Target Name="NCrunchOutputDataQuery" DependsOnTargets="">
-    <Message Text="#Expression_4c9c6db1bff242bb80ab9457525e3f16=$(OutDir)$(TargetName)$(TargetExt)" />
-    <Message Text="#Expression_d7a450b85abb46149e7599b466aadb59=$(Configuration)" />
-    <Message Text="#Expression_71eb6ae187b641ce9bbe7649daa110e3=$(TargetName)" />
+    <Message Text="#Expression_cb207efe21f841239033260921e05838=$(OutDir)$(TargetName)$(TargetExt)" />
+    <Message Text="#Expression_751ef3d1040e4966bf383daf08c459e0=$(Configuration)" />
+    <Message Text="#Expression_b5f4d9d361e041f0bd7636439c14f3e9=$(TargetName)" />
     <Message Text="#$TargetFrameworkDirectory=;$(TargetFrameworkDirectory)" />
     <Message Text="#ReferencePath=;@(ReferencePath)" />
     <Message Text="#ReferenceCopyLocalPaths=;@(ReferenceCopyLocalPaths)" />

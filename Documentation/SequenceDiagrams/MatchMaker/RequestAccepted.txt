@@ -1,0 +1,10 @@
+                MatchMaker
+                    |
+                    |
+RequestAccepted---->|
+                    |  
+                    |                    RequestScheduler 
+                    |                           |
+                    |------CancelRequest------->|
+                    |                           |
+

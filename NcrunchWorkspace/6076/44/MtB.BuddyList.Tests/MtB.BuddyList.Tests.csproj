@@ -11,12 +11,12 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\1\MtB.CommonValueObjects\bin\Debug\netcoreapp2.0\MtB.CommonValueObjects.dll" />
-    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\43\MtB.BuddyList\bin\Debug\netcoreapp2.0\MtB.BuddyList.dll" />
+    <Reference Include="C:\Users\dginev\Documents\Visual Studio 2017\Projects\MtB\NcrunchWorkspace\6076\53\MtB.BuddyList\bin\Debug\netcoreapp2.0\MtB.BuddyList.dll" />
   </ItemGroup>
   <Target Name="NCrunchOutputDataQuery" DependsOnTargets="">
-    <Message Text="#Expression_22d6f8981a034058af591fddd9b5dd02=$(OutDir)$(TargetName)$(TargetExt)" />
-    <Message Text="#Expression_3b397a89de0f4e17b4797732a4e04d7f=$(Configuration)" />
-    <Message Text="#Expression_61951139edd64f8999d961056589074c=$(TargetName)" />
+    <Message Text="#Expression_3f34e180d8574dd1a0eef33e4483abb0=$(OutDir)$(TargetName)$(TargetExt)" />
+    <Message Text="#Expression_2c86c2d4b310474198419cf79846248e=$(Configuration)" />
+    <Message Text="#Expression_d259d12e9019410d8d1623106322b093=$(TargetName)" />
     <Message Text="#$TargetFrameworkDirectory=;$(TargetFrameworkDirectory)" />
     <Message Text="#ReferencePath=;@(ReferencePath)" />
     <Message Text="#ReferenceCopyLocalPaths=;@(ReferenceCopyLocalPaths)" />

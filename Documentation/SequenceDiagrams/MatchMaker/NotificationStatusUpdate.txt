@@ -1,0 +1,15 @@
+                                   MatchMaker
+                                        |
+--NotificationTransmissionStatusUpdate->| 
+                                        |
+                                        |                   IRetreiveSentNotifications
+                                        |                            |
+                                        |----GetNotification-------->|
+                                        |                            |
+                                        |<------Notification---------|
+                                        |                            |
+                              UpdeteNotification                          IStoreNotifications 
+                                        |                                          |   
+                                        |--------SaveNotification----------------->|
+
+
