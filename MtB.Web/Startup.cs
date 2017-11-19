@@ -30,8 +30,10 @@ namespace MtB.Web
             services.AddScoped(listBuddies);
             services.AddScoped(storeBuddies);
             services.AddScoped(mtbStore);
+            services.AddScoped(addBuddy);
             services.AddMvc();
         }
+
 
         private MtbStore mtbStore(IServiceProvider arg)
         {
@@ -43,6 +45,12 @@ namespace MtB.Web
             var userId = new Guid("9824A957-7056-4659-BF81-3B70F6323E30");
             return new BuddyStore(arg.GetService<MtbStore>(), userId );
         }
+
+        private IAddBuddy addBuddy(IServiceProvider arg)
+        {
+            return new AddBuddy(arg.GetService<IStoreBuddies>(), arg.GetService<IProvideBuddies>());
+        }
+
         private IListBuddies listBuddies(IServiceProvider arg)
         {
             return new ListBuddies(arg.GetService<IProvideBuddies>(), arg.GetService<IStoreBuddies>());
