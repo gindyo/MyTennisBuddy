@@ -23,6 +23,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MtB.Web", "MtB.Web\MtB.Web.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MtB.Tests.DbUtilities", "MtB.DbTestUtilities\MtB.Tests.DbUtilities.csproj", "{C1CF6323-4E35-45E8-8EA3-AE1B3C76033F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MtB.PlayRequests", "MtB.PlayRequests\MtB.PlayRequests.csproj", "{1E01CF68-2B3C-47FC-9C2E-AAB7833DB5E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{C1CF6323-4E35-45E8-8EA3-AE1B3C76033F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C1CF6323-4E35-45E8-8EA3-AE1B3C76033F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C1CF6323-4E35-45E8-8EA3-AE1B3C76033F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E01CF68-2B3C-47FC-9C2E-AAB7833DB5E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E01CF68-2B3C-47FC-9C2E-AAB7833DB5E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E01CF68-2B3C-47FC-9C2E-AAB7833DB5E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E01CF68-2B3C-47FC-9C2E-AAB7833DB5E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
