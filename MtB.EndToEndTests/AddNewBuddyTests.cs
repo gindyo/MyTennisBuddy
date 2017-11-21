@@ -6,7 +6,7 @@ using MtB.CommonValueObjects;
 using MtB.Repository.Providers;
 using MtB.Repository.Stores;
 
-namespace MtB.EndToEndTests
+namespace MtB.Tests.EndToEnd
 {
     [TestClass]
     public class AddNewBuddyTests

@@ -6,9 +6,8 @@ using Moq;
 using MtB.BuddyList.Entities;
 using MtB.BuddyList.Factories;
 using MtB.BuddyList.MoveOperations;
-using MtB.BuddyList.Plugins;
 
-namespace MtB.BuddyList.Tests
+namespace MtB.Tests.BuddyList
 {
     [TestClass]
     public class MoveBuddiesTests

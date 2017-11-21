@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using MtB.BuddyList;
 using MtB.BuddyList.Entities;
 using MtB.BuddyList.Plugins;
 
-namespace MtB.BuddyList.Tests
+namespace MtB.Tests.BuddyList
 {
     [TestClass]
     public class AddBuddiesTests

@@ -3,6 +3,7 @@ using MtB.BuddyList;
 using MtB.BuddyList.Plugins;
 using MtB.Web.WebModels;
 using System.Linq;
+using MtB.BuddyList.Entities;
 
 namespace MtB.Web.Controllers
 {

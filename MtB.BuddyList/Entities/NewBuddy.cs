@@ -1,6 +1,4 @@
-﻿using MtB.BuddyList.Entities;
-
-namespace MtB.BuddyList
+﻿namespace MtB.BuddyList.Entities
 {
     public class NewBuddy 
     {

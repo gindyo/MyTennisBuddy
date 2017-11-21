@@ -1,15 +1,15 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MtB.BuddyList;
-using MtB.DbTestUtilities;
-using MtB.Repository.Providers;
-using MtB.Repository.Stores;
-using MtB.Web.Controllers;
-using MtB.Web.WebModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using MtB.BuddyList;
+using MtB.Repository.Providers;
+using MtB.Repository.Stores;
+using MtB.Tests.DbUtilities;
+using MtB.Web.Controllers;
+using MtB.Web.WebModels;
 
-namespace MtB.EndToEndTests
+namespace MtB.Tests.EndToEnd.WebControllersTests
 {
     [TestClass]
     public class BuddiesListControllerTests

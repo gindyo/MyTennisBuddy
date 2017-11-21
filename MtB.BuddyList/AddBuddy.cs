@@ -1,9 +1,11 @@
-﻿using MtB.BuddyList;
+﻿using System.Collections.Generic;
+using System.Linq;
 using MtB.BuddyList.Entities;
 using MtB.BuddyList.Plugins;
-using System.Collections.Generic;
-using System.Linq;
-public class AddBuddy : IAddBuddy
+
+namespace MtB.BuddyList
+{
+    public class AddBuddy : IAddBuddy
     {
         private readonly IStoreBuddies _storeBuddies;
         private readonly IEnumerable<Buddy> _provideBudies;
@@ -25,3 +27,4 @@ public class AddBuddy : IAddBuddy
 
         }
     }
+}
