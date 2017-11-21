@@ -1,0 +1,19 @@
+<h1>Buddies</h1>
+<p *ngIf="!buddies"><em>Loading...</em></p>
+
+<table class='table' *ngIf="buddies">
+        <tr>
+            <th>Name</th>
+            <th>Cell Phone</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let buddy of buddies">
+            <td ><input *ngIf="buddy.isNew" [(ngModel)]="buddy.firstName" /><span *ngIf="!buddy.isNew">{{ buddy.firstName }}</span></td>
+            <td><input *ngIf="buddy.isNew" [(ngModel)]="buddy.cellPhoneNumber" /><span *ngIf="!buddy.isNew">{{ buddy.cellPhoneNumber }}</span></td>
+            <td><input *ngIf="buddy.isNew" [(ngModel)]="buddy.email" /><span *ngIf="!buddy.isNew">{{ buddy.email }}</span></td>
+            <td><input type="button" *ngIf="buddy.isNew" (click)="saveBuddy(buddy)"  value="Save" id="save-button"></td>
+        </tr>
+</table>
+
+<button class="btn" (click)="addBuddy()">Add Buddy</button>

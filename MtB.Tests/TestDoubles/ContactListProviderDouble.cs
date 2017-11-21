@@ -7,7 +7,7 @@ using Moq;
 using MtB.Communication.Entities;
 using MtB.Communication.Plugins;
 
-namespace MtB.Communication.Tests.TestDoubles
+namespace MtB.Tests.Communication.TestDoubles
 {
     public class ProvideContactsDouble : Mock<IProvideContacts>, IProvideContacts
     {

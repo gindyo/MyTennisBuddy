@@ -7,9 +7,9 @@ using MtB.Communication.Components.ForSendingEmail;
 using MtB.Communication.Entities;
 using MtB.Communication.Factories;
 using MtB.Communication.Plugins;
-using MtB.Communication.Tests.TestDoubles;
+using MtB.Tests.Communication.TestDoubles;
 
-namespace MtB.Communication.Tests
+namespace MtB.Tests.Communication
 {
     [TestClass]
     public class TestingEmail
