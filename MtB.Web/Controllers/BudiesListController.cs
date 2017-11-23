@@ -8,7 +8,7 @@ using MtB.BuddyList.Entities;
 namespace MtB.Web.Controllers
 {
     [Route("api/[controller]")]
-    public partial class BuddiesListController : Controller
+    public  class BuddiesListController : Controller
     {
         public IListBuddies ListBuddies { get; }
         public IAddBuddy AddBuddy { get; }

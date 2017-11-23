@@ -9,12 +9,14 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListBuddies } from './components/listBuddies/listBuddies.component';
 import { CounterComponent } from './components/counter/counter.component';
+import { PlayRequests } from './components/playRequests/playRequests.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
         CounterComponent,
+        PlayRequests,
         ListBuddies,
         HomeComponent
     ],
@@ -24,7 +26,7 @@ import { CounterComponent } from './components/counter/counter.component';
         FormsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
-            { path: 'home', component: HomeComponent },
+            { path: 'home', component: PlayRequests },
             { path: 'counter', component: CounterComponent },
             { path: 'listBuddies', component: ListBuddies },
             { path: '**', redirectTo: 'home' }

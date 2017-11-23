@@ -1,8 +1,10 @@
-﻿using System;
-
-namespace MtB.PlayRequests
+﻿namespace MtB.PlayRequests
 {
-    public class Class1
+    public class ListPlayRequsets : IListPlayRequests
     {
+        public ListPlayRequsets(IProvidePlayRequests provider)
+        {
+            
+        }
     }
 }
