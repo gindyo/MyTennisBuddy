@@ -24,12 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MtB.BuddyList\MtB.BuddyList.csproj" />
-    <ProjectReference Include="..\MtB\MtB.Communication.csproj" />
-    <ProjectReference Include="..\MtB.CommonValueObjects\MtB.CommonValueObjects.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Update="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -45,6 +39,9 @@
 
   <ItemGroup>
     <Folder Include="Migrations\" />
-    <Folder Include="Stores\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MTB.Domain.Core\Core.csproj" />
   </ItemGroup>
 </Project>

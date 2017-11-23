@@ -1,11 +1,11 @@
 using System;
 using System.Linq;
+using Core.Communication.Components.ForSendingEmail;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MtB.Communication.Components.ForSendingEmail;
-using MtB.Repository.Providers;
-using MtB.Tests.DbUtilities;
+using Repository.Providers;
+using Tests.DbUtilities;
 
-namespace MtB.Tests.Repository
+namespace Repository.Tests
 {
     [TestClass]
     public class ProviderTests

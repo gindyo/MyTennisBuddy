@@ -1,8 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using MtB.Repository.Entities;
+using Repository.Entities;
 
-namespace MtB.Repository.Providers
+namespace Repository.Providers
 {
     public class MtbStore : DbContext
     {

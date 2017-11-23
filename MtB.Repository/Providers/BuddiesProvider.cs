@@ -2,10 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using MtB.BuddyList.Entities;
-using MtB.BuddyList.Plugins;
+using Core.BuddyList.Entities;
+using Core.BuddyList.Plugins;
 
-namespace MtB.Repository.Providers
+namespace Repository.Providers
 {
     public class BuddiesProvider : IProvideBuddies
     {

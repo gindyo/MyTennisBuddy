@@ -1,12 +1,13 @@
 using System;
+using Core.BuddyList;
+using Core.BuddyList.Entities;
+using Core.CommonValueObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MtB.BuddyList;
-using MtB.BuddyList.Entities;
-using MtB.CommonValueObjects;
-using MtB.Repository.Providers;
-using MtB.Repository.Stores;
 
-namespace MtB.Tests.EndToEnd
+using Repository.Providers;
+using Repository.Stores;
+
+namespace Tests.EndToEnd
 {
     [TestClass]
     public class AddNewBuddyTests

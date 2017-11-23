@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using MtB.Communication.Components.ForSendingEmail;
-using MtB.Repository.Entities;
-using MtB.Repository.Providers;
+using Core.Communication.Components.ForSendingEmail;
+using Repository.Entities;
+using Repository.Providers;
 
-namespace MtB.Tests.DbUtilities
+namespace Tests.DbUtilities
 {
     public class SeedDatabase
     {

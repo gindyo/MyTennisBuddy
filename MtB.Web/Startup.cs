@@ -1,18 +1,16 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Core.BuddyList;
+using Core.BuddyList.Plugins;
+using Core.PlayRequests;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MtB.BuddyList.Plugins;
-using MtB.Repository.Providers;
-using MtB.BuddyList;
-using MtB.Repository.Stores;
+using Repository.Providers;
+using Repository.Stores;
 
-namespace MtB.Web
+namespace Web
 {
     public class Startup
     {
@@ -26,12 +24,24 @@ namespace MtB.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped(buidesProvider);
-            services.AddScoped(listBuddies);
-            services.AddScoped(storeBuddies);
-            services.AddScoped(mtbStore);
-            services.AddScoped(addBuddy);
+            services.AddScoped<IProvideBuddies>(buidesProvider);
+            services.AddScoped<IListBuddies>(listBuddies);
+            services.AddScoped<MtbStore>(mtbStore);
+            services.AddScoped<IAddBuddy>(addBuddy);
+            services.AddScoped<IStoreBuddies>(storeBuddies);
+            services.AddScoped<IStorePlayRequests>(storePlayRequests);
+            services.AddScoped<IProvidePlayRequests>(providePlayRequsests);
             services.AddMvc();
+        }
+
+        private IProvidePlayRequests providePlayRequsests(IServiceProvider arg)
+        {
+            throw new NotImplementedException();
+        }
+
+        private IStorePlayRequests storePlayRequests(IServiceProvider arg)
+        {
+            throw new NotImplementedException();
         }
 
 
@@ -53,7 +63,7 @@ namespace MtB.Web
 
         private IListBuddies listBuddies(IServiceProvider arg)
         {
-            return new ListBuddies(arg.GetService<IProvideBuddies>(), arg.GetService<IStoreBuddies>());
+            return new ListBuddies(arg.GetService<IProvideBuddies>());
         }
 
         private IProvideBuddies buidesProvider(IServiceProvider arg)

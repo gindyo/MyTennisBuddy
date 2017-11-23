@@ -1,8 +1,8 @@
-﻿using MtB.Communication.Components.ForSendingEmail;
-using MtB.Communication.Components.ForSendingSms;
-using MtB.Communication.Entities;
+﻿using Core.Communication.Components.ForSendingEmail;
+using Core.Communication.Components.ForSendingSms;
+using Core.Communication.Entities;
 
-namespace MtB.Repository.Entities
+namespace Repository.Entities
 {
     public class CommunicationCapability
     {

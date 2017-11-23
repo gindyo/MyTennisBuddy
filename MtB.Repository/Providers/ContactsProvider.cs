@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using MtB.Communication.Entities;
-using MtB.Communication.Plugins;
-using MtB.Repository.Entities;
+using Core.Communication.Entities;
+using Core.Communication.Plugins;
+using Repository.Entities;
 
-namespace MtB.Repository.Providers
+namespace Repository.Providers
 {
     public class ContactsProvider : IProvideContacts
     {

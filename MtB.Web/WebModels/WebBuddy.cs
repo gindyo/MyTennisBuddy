@@ -1,9 +1,9 @@
-﻿namespace MtB.Web.WebModels
-{
-    using MtB.BuddyList.Entities;
-    using MtB.CommonValueObjects;
-    using System;
+﻿using System;
+using Core.BuddyList.Entities;
+using Core.CommonValueObjects;
 
+namespace Web.WebModels
+{
     public class WebBuddy
     {
 

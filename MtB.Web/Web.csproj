@@ -30,8 +30,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MtB.BuddyList\MtB.BuddyList.csproj" />
-    <ProjectReference Include="..\MtB.Repository\MtB.Repository.csproj" />
+    <ProjectReference Include="..\MTB.Domain.Core\Core.csproj" />
+    <ProjectReference Include="..\MtB.Repository\Repository.csproj" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

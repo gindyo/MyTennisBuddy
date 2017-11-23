@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Core.BuddyList;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using MtB.BuddyList;
-using MtB.Repository.Providers;
-using MtB.Repository.Stores;
-using MtB.Tests.DbUtilities;
-using MtB.Web.Controllers;
-using MtB.Web.WebModels;
+using Repository.Providers;
+using Repository.Stores;
+using Tests.DbUtilities;
+using Web.Controllers;
+using Web.WebModels;
 
-namespace MtB.Tests.EndToEnd.WebControllersTests
+namespace Tests.EndToEnd.WebControllersTests
 {
     [TestClass]
     public class BuddiesListControllerTests
@@ -22,7 +22,7 @@ namespace MtB.Tests.EndToEnd.WebControllersTests
             var friend = new SeedDatabase(store).CreateFriendFor(userId);
             BuddiesProvider provider = new BuddiesProvider(new MtbStore(), userId);
             BuddyStore bstore = new BuddyStore(new MtbStore(), userId);
-            ListBuddies listBuddies = new ListBuddies(provider, bstore);
+            ListBuddies listBuddies = new ListBuddies(provider);
             IAddBuddy addBuddy = new AddBuddy(bstore, provider);
             var controller = new BuddiesListController(listBuddies, addBuddy);
             var buddiesJson = controller.Buddies();
@@ -35,7 +35,7 @@ namespace MtB.Tests.EndToEnd.WebControllersTests
             MtbStore store = new MtbStore();
             BuddiesProvider provider = new BuddiesProvider(new MtbStore(), userId);
             BuddyStore bstore = new BuddyStore(store, userId);
-            ListBuddies listBuddies = new ListBuddies(provider, bstore);
+            ListBuddies listBuddies = new ListBuddies(provider);
             IAddBuddy addBuddy = new AddBuddy(bstore, provider);
             var controller = new BuddiesListController(listBuddies, addBuddy);
             WebBuddy buddy = new WebBuddy() { cellPhoneNumber = "12345", email = "email@bla.com", firstName = "dimitar"};

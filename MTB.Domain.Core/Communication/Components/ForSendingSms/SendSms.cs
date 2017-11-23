@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using Core.Communication.Factories;
+using Core.Communication.Plugins;
+
+namespace Core.Communication.Components.ForSendingSms
+{
+    public class SendSms
+    {
+        private readonly BuildUserContactList _buildContactList;
+        private readonly IScheduleTask _scheduleTask;
+        private SmsContactList SmsContactList => _buildContactList.With(new ReceiveSmsCapability());
+
+        public SendSms(BuildUserContactList buildContactList, IScheduleTask scheduleScheduleTask )
+        {
+            _buildContactList = buildContactList;
+            _scheduleTask = scheduleScheduleTask;
+        }
+        public void To(Guid receiverId, Sms sms)
+        {
+            SmsContactList.Get(receiverId).Receive(sms);
+        }
+
+        public void To(IEnumerable<Guid> list, Sms sms)
+        {
+            var emailContacts = SmsContactList
+                .Get(list)
+                .OrderBy(c => c.SequenceNum)
+                .ToList();
+            foreach (var contact in emailContacts)
+            {
+                _scheduleTask.Do(() => contact.Receive(sms));
+                _scheduleTask.In(TimeSpan.FromMinutes(5));
+                _scheduleTask.StartCounting();
+            }
+        }
+
+        
+    }
+}

@@ -1,13 +1,13 @@
-using Microsoft.AspNetCore.Mvc;
-using MtB.BuddyList;
-using MtB.BuddyList.Plugins;
-using MtB.Web.WebModels;
+using System;
 using System.Linq;
-using MtB.BuddyList.Entities;
+using Core.BuddyList;
+using Core.BuddyList.Entities;
+using Microsoft.AspNetCore.Mvc;
+using Web.WebModels;
 
-namespace MtB.Web.Controllers
+namespace Web.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/Buddies")]
     public  class BuddiesListController : Controller
     {
         public IListBuddies ListBuddies { get; }
@@ -19,12 +19,18 @@ namespace MtB.Web.Controllers
             AddBuddy = addBuddy;
         }
 
-        [HttpGet("[action]")]
+
+        [HttpGet("{id}")]
+        public JsonResult Buddy(Guid id)
+        {
+            return Json(ListBuddies.Get(id));
+        }
+        [HttpGet("")]
         public JsonResult Buddies()
         {
             return Json(ListBuddies.All().Select(b=> (WebBuddy)b));
         }
-        [HttpPost("[action]")]
+        [HttpPost("")]
         public ActionResult New([FromBody]WebBuddy buddy)
         {
             try
@@ -38,7 +44,8 @@ namespace MtB.Web.Controllers
             }
             return new CreatedResult("", null);
         }
-        [HttpPost("[action]")]
+
+        [HttpPost("")]
         public ActionResult Update([FromBody]WebBuddy buddy)
         {
             AddBuddy.Update(buddy);

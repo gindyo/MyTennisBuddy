@@ -1,8 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
-using System;
-using System.Collections.Generic;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MtB.Repository.Migrations
+namespace Repository.Migrations
 {
     public partial class InitialMigration : Migration
     {

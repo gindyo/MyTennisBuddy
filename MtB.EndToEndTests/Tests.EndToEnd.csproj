@@ -13,19 +13,15 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="2.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.3.0-preview-20170628-02" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.1.18" />
     <PackageReference Include="MSTest.TestFramework" Version="1.1.18" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MtB.DbTestUtilities\MtB.Tests.DbUtilities.csproj" />
-    <ProjectReference Include="..\MtB.Repository\MtB.Repository.csproj" />
-    <ProjectReference Include="..\MtB.BuddyList\MtB.BuddyList.csproj" />
-    <ProjectReference Include="..\MtB.CommonValueObjects\MtB.CommonValueObjects.csproj" />
-    <ProjectReference Include="..\MtB\MtB.Communication.csproj" />
+    <ProjectReference Include="..\MtB.DbTestUtilities\Tests.DbUtilities.csproj" />
+    <ProjectReference Include="..\MTB.Domain.Core\Core.csproj" />
+    <ProjectReference Include="..\MtB.Repository\Repository.csproj" />
+    <ProjectReference Include="..\MtB.Web\Web.csproj" />
   </ItemGroup>
-
 </Project>

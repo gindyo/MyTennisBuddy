@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using MtB.BuddyList.Entities;
-using MtB.CommonValueObjects;
-using MtB.Communication.Entities;
+using Core.BuddyList.Entities;
+using Core.CommonValueObjects;
+using Core.Communication.Entities;
 
-namespace MtB.Repository.Entities
+namespace Repository.Entities
 {
     public class Friend
     {

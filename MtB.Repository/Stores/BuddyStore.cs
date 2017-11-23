@@ -1,11 +1,10 @@
 ﻿using System;
-using MtB.BuddyList;
-using MtB.BuddyList.Entities;
-using MtB.BuddyList.Plugins;
-using MtB.Repository.Entities;
-using MtB.Repository.Providers;
+using Core.BuddyList.Entities;
+using Core.BuddyList.Plugins;
+using Repository.Entities;
+using Repository.Providers;
 
-namespace MtB.Repository.Stores
+namespace Repository.Stores
 {
     public class BuddyStore: IStoreBuddies
     {
