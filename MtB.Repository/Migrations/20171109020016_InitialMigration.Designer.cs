@@ -8,7 +8,7 @@ using Repository.Providers;
 
 namespace Repository.Migrations
 {
-    [DbContext(typeof(MtbStore))]
+    [DbContext(typeof(MtbDbContext))]
     [Migration("20171109020016_InitialMigration")]
     partial class InitialMigration
     {

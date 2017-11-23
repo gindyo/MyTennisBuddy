@@ -4,8 +4,15 @@ using Core.PlayRequests;
 
 namespace Repository.Providers
 {
-    public class PlayRequestsProvider : IProvidePlayRequests
+    internal class PlayRequestsProvider : IProvidePlayRequests
     {
+        private readonly MtbDbContext _mtbDbContext;
+
+        internal PlayRequestsProvider(MtbDbContext mtbDbContext)
+        {
+            _mtbDbContext = mtbDbContext;
+        }
+
         public IEnumerable<PlayRequest> Outbound()
         {
             throw new NotImplementedException();

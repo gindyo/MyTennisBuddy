@@ -7,20 +7,20 @@ using Core.BuddyList.Plugins;
 
 namespace Repository.Providers
 {
-    public class BuddiesProvider : IProvideBuddies
+    internal class BuddiesProvider : IProvideBuddies
     {
-        private readonly MtbStore _mtbStore;
+        private readonly MtbDbContext _mtbDbContext;
         public Guid UserId { get; }
 
-        public BuddiesProvider(MtbStore friendsProvider, Guid userId)
+        internal  BuddiesProvider(MtbDbContext friendsProvider, Guid userId)
         {
-            _mtbStore = friendsProvider;
+            _mtbDbContext = friendsProvider;
             UserId = userId;
         }
 
         public IEnumerator<Buddy> GetEnumerator()
         {
-            return _mtbStore.Friends.AsQueryable().Where(f => f.UserId == UserId).Select(f => f.ToBuddy()).GetEnumerator();
+            return _mtbDbContext.Friends.AsQueryable().Where(f => f.UserId == UserId).Select(f => f.ToBuddy()).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()

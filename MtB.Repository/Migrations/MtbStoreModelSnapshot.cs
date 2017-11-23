@@ -7,7 +7,7 @@ using Repository.Providers;
 
 namespace Repository.Migrations
 {
-    [DbContext(typeof(MtbStore))]
+    [DbContext(typeof(MtbDbContext))]
     partial class MtbStoreModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)
