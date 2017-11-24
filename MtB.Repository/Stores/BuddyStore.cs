@@ -20,15 +20,15 @@ namespace Repository.Stores
 
         public void Update(Buddy buddy)
         {
-            Friend friend = new Friend(buddy) { UserId = UserId };
-            _mtbDbContext.Entry(friend).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            BuddyRecord buddyRecord = new BuddyRecord(buddy) { UserId = UserId };
+            _mtbDbContext.Entry(buddyRecord).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
             _mtbDbContext.SaveChanges();
         }
 
 
         public void Save(NewBuddy buddy)
         {
-            _mtbDbContext.Add(new Friend(buddy) { UserId = UserId});
+            _mtbDbContext.Add(new BuddyRecord(buddy) { UserId = UserId});
             _mtbDbContext.SaveChanges();
 
         }

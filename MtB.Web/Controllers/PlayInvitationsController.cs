@@ -26,7 +26,7 @@ namespace Web.Controllers
         [HttpPost("")]
         public JsonResult Create([FromBody] PlayInvitation invitation)
         {
-            return new JsonResult(BaseAddress + _playInvitationsStore.Create());
+            return new JsonResult(BaseAddress + _playInvitationsStore.Create(invitation));
         }
     }
 }

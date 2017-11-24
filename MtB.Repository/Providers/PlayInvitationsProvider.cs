@@ -4,11 +4,11 @@ using Core.PlayInvitations;
 
 namespace Repository.Providers
 {
-    internal class PlayInvitationsProvider : IProvidePlayInvitations
+    public class PlayInvitationsProvider : IProvidePlayInvitations
     {
         private readonly MtbDbContext _mtbDbContext;
 
-        internal PlayInvitationsProvider(MtbDbContext mtbDbContext)
+        public  PlayInvitationsProvider(MtbDbContext mtbDbContext)
         {
             _mtbDbContext = mtbDbContext;
         }
@@ -20,7 +20,7 @@ namespace Repository.Providers
 
         public IEnumerable<PlayInvitation> Inbound()
         {
-            throw new NotImplementedException();
+            return new List<PlayInvitation>();
         }
     }
 }

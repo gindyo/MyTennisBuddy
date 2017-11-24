@@ -20,7 +20,7 @@ namespace Repository.Providers
 
         public IEnumerator<Buddy> GetEnumerator()
         {
-            return _mtbDbContext.Friends.AsQueryable().Where(f => f.UserId == UserId).Select(f => f.ToBuddy()).GetEnumerator();
+            return _mtbDbContext.BuddyRecords.AsQueryable().Where(f => f.UserId == UserId).Select(f => f.ToBuddy()).GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()

@@ -29,19 +29,19 @@ namespace Web
             services.AddScoped<MtbDbContext>(mtbStore);
             services.AddScoped<IAddBuddy>(addBuddy);
             services.AddScoped<IStoreBuddies>(storeBuddies);
-            services.AddScoped<IStorePlayInvitations>(storePlayRequests);
-            services.AddScoped<IProvidePlayInvitations>(providePlayRequsests);
+            services.AddScoped<IStorePlayInvitations>(storePlayInvitations);
+            services.AddScoped<IProvidePlayInvitations>(providePlayInvitations);
             services.AddMvc();
         }
 
-        private IProvidePlayInvitations providePlayRequsests(IServiceProvider arg)
+        private IProvidePlayInvitations providePlayInvitations(IServiceProvider arg)
         {
-            throw new NotImplementedException();
+            return new PlayInvitationsProvider(arg.GetService<MtbDbContext>());
         }
 
-        private IStorePlayInvitations storePlayRequests(IServiceProvider arg)
+        private IStorePlayInvitations storePlayInvitations(IServiceProvider arg)
         {
-            throw new NotImplementedException();
+            return new PlayInvitationsStore(arg.GetService<MtbDbContext>());
         }
 
 
@@ -52,7 +52,7 @@ namespace Web
 
         private IStoreBuddies storeBuddies(IServiceProvider arg)
         {
-            var userId = new Guid("9824A957-7056-4659-BF81-3B70F6323E30");
+            var userId =new Guid("00000000-0000-0000-00000000");
             return new BuddyStore(arg.GetService<MtbDbContext>(), userId );
         }
 
@@ -68,7 +68,7 @@ namespace Web
 
         private IProvideBuddies buidesProvider(IServiceProvider arg)
         {
-            var userId = new Guid("9824A957-7056-4659-BF81-3B70F6323E30");
+            var userId =new Guid("00000000-0000-0000-00000000");
             return new BuddiesProvider(new MtbDbContext(), userId);
         }
 

@@ -7,10 +7,10 @@ using Core.Communication.Entities;
 
 namespace Repository.Entities
 {
-    public class Friend
+    public class BuddyRecord
     {
-        public Friend() { }
-        public Friend(Buddy buddy)
+        public BuddyRecord() { }
+        public BuddyRecord(Buddy buddy)
         {
             FirstName = buddy.Name.First;
             LastName = buddy.Name.Last;
@@ -23,7 +23,7 @@ namespace Repository.Entities
         public long Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
-        public List<CommunicationCapability> ComunicationCapabilities { get; set; }
+        public List<CommunicationCapabilityRecord> ComunicationCapabilities { get; set; }
         public Guid ExternalId { get; set; }
         public int Position { get; set; }
         public string CellPhoneNmuber { get; set; }

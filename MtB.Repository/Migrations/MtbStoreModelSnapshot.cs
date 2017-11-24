@@ -16,7 +16,7 @@ namespace Repository.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.0.0-rtm-26452");
 
-            modelBuilder.Entity("MtB.Repository.Entities.CommunicationCapability", b =>
+            modelBuilder.Entity("MtB.Repository.Entities.CommunicationCapabilityRecord", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
@@ -32,7 +32,7 @@ namespace Repository.Migrations
                     b.ToTable("CommunicationCapabilities");
                 });
 
-            modelBuilder.Entity("MtB.Repository.Entities.Friend", b =>
+            modelBuilder.Entity("MtB.Repository.Entities.BuddyRecord", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
@@ -53,12 +53,12 @@ namespace Repository.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Friends");
+                    b.ToTable("BuddyRecords");
                 });
 
-            modelBuilder.Entity("MtB.Repository.Entities.CommunicationCapability", b =>
+            modelBuilder.Entity("MtB.Repository.Entities.CommunicationCapabilityRecord", b =>
                 {
-                    b.HasOne("MtB.Repository.Entities.Friend")
+                    b.HasOne("MtB.Repository.Entities.BuddyRecord")
                         .WithMany("ComunicationCapabilities")
                         .HasForeignKey("FriendId");
                 });

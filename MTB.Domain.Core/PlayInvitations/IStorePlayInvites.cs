@@ -4,7 +4,7 @@ namespace Core.PlayInvitations
 {
     public interface IStorePlayInvitations
     {
-        Guid Create();
-        Guid Update();
+        Guid Create(PlayInvitation invitation);
+        Guid Update(PlayInvitation invitation);
     }
 }

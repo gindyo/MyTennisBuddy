@@ -4,7 +4,7 @@ using Core.Communication.Entities;
 
 namespace Repository.Entities
 {
-    public class CommunicationCapability
+    public class CommunicationCapabilityRecord
     {
         public int Id { get; set; }
         public string Type { get; set; }

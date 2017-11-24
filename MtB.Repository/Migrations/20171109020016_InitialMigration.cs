@@ -8,7 +8,7 @@ namespace Repository.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Friends",
+                name: "BuddyRecords",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "INTEGER", nullable: false)
@@ -41,7 +41,7 @@ namespace Repository.Migrations
                     table.ForeignKey(
                         name: "FK_CommunicationCapabilities_Friends_FriendId",
                         column: x => x.FriendId,
-                        principalTable: "Friends",
+                        principalTable: "BuddyRecords",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -58,7 +58,7 @@ namespace Repository.Migrations
                 name: "CommunicationCapabilities");
 
             migrationBuilder.DropTable(
-                name: "Friends");
+                name: "BuddyRecords");
         }
     }
 }

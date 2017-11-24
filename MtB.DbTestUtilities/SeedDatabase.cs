@@ -13,10 +13,10 @@ namespace Tests.DbUtilities
         {
             DbContext = dbContext;
         }
-        public  Friend CreateFriendFor(Guid userId )
+        public  BuddyRecord CreateFriendFor(Guid userId )
         {
             var newGuid = Guid.NewGuid();
-            var friend = new Friend()
+            var friend = new BuddyRecord()
             {
                 UserId = userId,
                 ExternalId = newGuid,
@@ -25,12 +25,12 @@ namespace Tests.DbUtilities
                 CellPhoneNmuber = "23452345",
                 Email = "dimitar@ginev.com",
                 Position = 1,
-                ComunicationCapabilities = new List<CommunicationCapability>()
+                ComunicationCapabilities = new List<CommunicationCapabilityRecord>()
                 {
-					new CommunicationCapability() {Type = typeof(ReceiveEmailCapability).ToString()}
+					new CommunicationCapabilityRecord() {Type = typeof(ReceiveEmailCapability).ToString()}
                 }
             };
-            DbContext.Friends.Add(friend);
+            DbContext.BuddyRecords.Add(friend);
             DbContext.SaveChanges();
             return friend;
         }

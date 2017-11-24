@@ -20,12 +20,12 @@ namespace Repository.Providers
 
         public IEnumerator<Contact> GetEnumerator()
         {
-            return _friendsProvider.Friends.Select(ToContact).GetEnumerator();
+            return _friendsProvider.BuddyRecords.Select(ToContact).GetEnumerator();
         }
 
-        private Contact ToContact(Friend friend)
+        private Contact ToContact(BuddyRecord buddyRecord)
         {
-            return friend.ToContact();
+            return buddyRecord.ToContact();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -34,8 +34,8 @@ namespace Repository.Providers
         }
 
         public Type ElementType => typeof(Contact);
-        public Expression Expression => _friendsProvider.Friends.Select(f=> f.ToContact()).AsQueryable().Expression;
-        public IQueryProvider Provider => _friendsProvider.Friends.Select(f => f.ToContact()).AsQueryable().Provider;
+        public Expression Expression => _friendsProvider.BuddyRecords.Select(f=> f.ToContact()).AsQueryable().Expression;
+        public IQueryProvider Provider => _friendsProvider.BuddyRecords.Select(f => f.ToContact()).AsQueryable().Provider;
         public IQueryable<Contact> GetAll(Guid userId)
         {
             return this;
