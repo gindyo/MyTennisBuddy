@@ -7,12 +7,12 @@ using Core.BuddyList.Plugins;
 
 namespace Repository.Providers
 {
-    internal class BuddiesProvider : IProvideBuddies
+    public class BuddiesProvider : IProvideBuddies
     {
         private readonly MtbDbContext _mtbDbContext;
         public Guid UserId { get; }
 
-        internal  BuddiesProvider(MtbDbContext friendsProvider, Guid userId)
+        public  BuddiesProvider(MtbDbContext friendsProvider, Guid userId)
         {
             _mtbDbContext = friendsProvider;
             UserId = userId;

@@ -8,11 +8,11 @@ namespace Repository.Stores
 {
     public class BuddyStore: IStoreBuddies
     {
-        private readonly MtbStore _mtbStore;
+        private readonly MtbDbContext _mtbDbContext;
 
-        public BuddyStore(MtbStore mtbStore, Guid userId)
+        public BuddyStore(MtbDbContext mtbDbContext, Guid userId)
         {
-            _mtbStore = mtbStore;
+            _mtbDbContext = mtbDbContext;
             UserId = userId;
         }
 
@@ -21,15 +21,15 @@ namespace Repository.Stores
         public void Update(Buddy buddy)
         {
             Friend friend = new Friend(buddy) { UserId = UserId };
-            _mtbStore.Entry(friend).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
-            _mtbStore.SaveChanges();
+            _mtbDbContext.Entry(friend).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _mtbDbContext.SaveChanges();
         }
 
 
         public void Save(NewBuddy buddy)
         {
-            _mtbStore.Add(new Friend(buddy) { UserId = UserId});
-            _mtbStore.SaveChanges();
+            _mtbDbContext.Add(new Friend(buddy) { UserId = UserId});
+            _mtbDbContext.SaveChanges();
 
         }
     }

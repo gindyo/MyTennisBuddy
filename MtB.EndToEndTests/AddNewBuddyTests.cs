@@ -16,7 +16,7 @@ namespace Tests.EndToEnd
         public void TestAddingNewBuddy()
         {
             var userId = new Guid("9824A957-7056-4659-BF81-3B70F6329E3A");
-            var addBuddy = new AddBuddy(new BuddyStore(new MtbStore(), userId), new BuddiesProvider(new MtbStore(), userId));
+            var addBuddy = new AddBuddy(new BuddyStore(new MtbDbContext(), userId), new BuddiesProvider(new MtbDbContext(), userId));
             Buddy buddy = new Buddy(Guid.NewGuid()) { Name = new Name("Dimitar", "Ginev"), ContactInfo = new ContactInfo("", "") };
             addBuddy.New(new NewBuddy(buddy));
         }

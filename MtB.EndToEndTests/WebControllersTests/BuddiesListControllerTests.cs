@@ -18,10 +18,10 @@ namespace Tests.EndToEnd.WebControllersTests
         public void GetAListOfAllBuddies()
         {
             Guid userId = Guid.NewGuid();
-            MtbStore store = new MtbStore();
-            var friend = new SeedDatabase(store).CreateFriendFor(userId);
-            BuddiesProvider provider = new BuddiesProvider(new MtbStore(), userId);
-            BuddyStore bstore = new BuddyStore(new MtbStore(), userId);
+            MtbDbContext dbContext = new MtbDbContext();
+            var friend = new SeedDatabase(dbContext).CreateFriendFor(userId);
+            BuddiesProvider provider = new BuddiesProvider(new MtbDbContext(), userId);
+            BuddyStore bstore = new BuddyStore(new MtbDbContext(), userId);
             ListBuddies listBuddies = new ListBuddies(provider);
             IAddBuddy addBuddy = new AddBuddy(bstore, provider);
             var controller = new BuddiesListController(listBuddies, addBuddy);
@@ -32,9 +32,9 @@ namespace Tests.EndToEnd.WebControllersTests
         public void SaveANewBuddy()
         {
             Guid userId = Guid.NewGuid();
-            MtbStore store = new MtbStore();
-            BuddiesProvider provider = new BuddiesProvider(new MtbStore(), userId);
-            BuddyStore bstore = new BuddyStore(store, userId);
+            MtbDbContext dbContext = new MtbDbContext();
+            BuddiesProvider provider = new BuddiesProvider(new MtbDbContext(), userId);
+            BuddyStore bstore = new BuddyStore(dbContext, userId);
             ListBuddies listBuddies = new ListBuddies(provider);
             IAddBuddy addBuddy = new AddBuddy(bstore, provider);
             var controller = new BuddiesListController(listBuddies, addBuddy);

@@ -8,10 +8,10 @@ namespace Tests.DbUtilities
 {
     public class SeedDatabase
     {
-        public MtbStore Store { get; }
-        public SeedDatabase(MtbStore store)
+        public MtbDbContext DbContext { get; }
+        public SeedDatabase(MtbDbContext dbContext)
         {
-            Store = store;
+            DbContext = dbContext;
         }
         public  Friend CreateFriendFor(Guid userId )
         {
@@ -30,8 +30,8 @@ namespace Tests.DbUtilities
 					new CommunicationCapability() {Type = typeof(ReceiveEmailCapability).ToString()}
                 }
             };
-            Store.Friends.Add(friend);
-            Store.SaveChanges();
+            DbContext.Friends.Add(friend);
+            DbContext.SaveChanges();
             return friend;
         }
     }

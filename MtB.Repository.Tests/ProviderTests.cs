@@ -15,7 +15,7 @@ namespace Repository.Tests
         [TestMethod]
         public void TestMethod1()
         {
-            var friendsProvider = new MtbStore(); 
+            var friendsProvider = new MtbDbContext(); 
             var newGuid = new SeedDatabase( friendsProvider).CreateFriendFor(userId).ExternalId;
             var buddiesProvider = new BuddiesProvider(friendsProvider, userId);
             var buddy = buddiesProvider.First(b => b.ExternalId == newGuid);
@@ -26,7 +26,7 @@ namespace Repository.Tests
         [TestMethod]
         public void ContactsProviderRetrievesContact ()
         {
-            var friendsProvider = new MtbStore(); 
+            var friendsProvider = new MtbDbContext(); 
             var newGuid = new SeedDatabase( friendsProvider).CreateFriendFor(userId).ExternalId;
             var contactsProvider = new ContactsProvider(friendsProvider);
             var contact = contactsProvider.First(b => b.ExternalId == newGuid);

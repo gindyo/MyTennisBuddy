@@ -26,7 +26,7 @@ namespace Web
         {
             services.AddScoped<IProvideBuddies>(buidesProvider);
             services.AddScoped<IListBuddies>(listBuddies);
-            services.AddScoped<MtbStore>(mtbStore);
+            services.AddScoped<MtbDbContext>(mtbStore);
             services.AddScoped<IAddBuddy>(addBuddy);
             services.AddScoped<IStoreBuddies>(storeBuddies);
             services.AddScoped<IStorePlayRequests>(storePlayRequests);
@@ -45,15 +45,15 @@ namespace Web
         }
 
 
-        private MtbStore mtbStore(IServiceProvider arg)
+        private MtbDbContext mtbStore(IServiceProvider arg)
         {
-            return new MtbStore();
+            return new MtbDbContext();
         }
 
         private IStoreBuddies storeBuddies(IServiceProvider arg)
         {
             var userId = new Guid("9824A957-7056-4659-BF81-3B70F6323E30");
-            return new BuddyStore(arg.GetService<MtbStore>(), userId );
+            return new BuddyStore(arg.GetService<MtbDbContext>(), userId );
         }
 
         private IAddBuddy addBuddy(IServiceProvider arg)
@@ -69,7 +69,7 @@ namespace Web
         private IProvideBuddies buidesProvider(IServiceProvider arg)
         {
             var userId = new Guid("9824A957-7056-4659-BF81-3B70F6323E30");
-            return new BuddiesProvider(new MtbStore(), userId);
+            return new BuddiesProvider(new MtbDbContext(), userId);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
