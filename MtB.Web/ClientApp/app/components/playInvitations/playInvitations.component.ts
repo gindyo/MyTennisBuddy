@@ -2,36 +2,36 @@ import { Component, Inject } from '@angular/core';
 import { Http, Headers, RequestOptions} from '@angular/http';
 
 @Component({
-    selector: 'playInvites',
-    templateUrl: './playInvites.component.html'
+    selector: 'playInvitation',
+    templateUrl: './playInvitations.component.html'
 })
-export class PlayInvites {
+export class PlayInvitationComponent {
     baseUrl: string;
     http: Http;
-    public playInvites: PlayInvite[];
+    public playInvitation: PlayInvitation[];
 
-    public createPlayInvite() {
-        this.playInvites.push(new PlayInvite());
+    public createPlayInvitation() {
+        this.playInvitation.push(new PlayInvitation());
     }
 
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
         this.http = http;
         this.baseUrl = baseUrl;
-        http.get(baseUrl + '/api/playInvites/').subscribe(result => {
-            this.playInvites = result.json() as PlayInvite[];
+        http.get(baseUrl + '/api/playInvitations/').subscribe(result => {
+            this.playInvitation = result.json() as PlayInvitation[];
         }, error => console.error(error));
     }
-    public createInvite(playInvite:PlayInvite) {
-        playInvite.isNew = false; 
+    public createInvitation(playInvitation:PlayInvitation) {
+        playInvitation.isNew = false; 
         let options = new RequestOptions()
         options.headers = new Headers({ 'Content-Type': 'application/json' });
-        this.http.post(this.baseUrl + "/api/playInvites/",  playInvite , options).subscribe(result => {
+        this.http.post(this.baseUrl + "/api/playInvitations/",  playInvitation , options).subscribe(result => {
 
         })
     }
 }
 
-class PlayInvite {
+class PlayInvitation {
     constructor() {
         this.isNew = true;
     }

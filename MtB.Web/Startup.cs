@@ -1,7 +1,7 @@
 using System;
 using Core.BuddyList;
 using Core.BuddyList.Plugins;
-using Core.PlayRequests;
+using Core.PlayInvitations;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -29,17 +29,17 @@ namespace Web
             services.AddScoped<MtbDbContext>(mtbStore);
             services.AddScoped<IAddBuddy>(addBuddy);
             services.AddScoped<IStoreBuddies>(storeBuddies);
-            services.AddScoped<IStorePlayRequests>(storePlayRequests);
-            services.AddScoped<IProvidePlayRequests>(providePlayRequsests);
+            services.AddScoped<IStorePlayInvitations>(storePlayRequests);
+            services.AddScoped<IProvidePlayInvitations>(providePlayRequsests);
             services.AddMvc();
         }
 
-        private IProvidePlayRequests providePlayRequsests(IServiceProvider arg)
+        private IProvidePlayInvitations providePlayRequsests(IServiceProvider arg)
         {
             throw new NotImplementedException();
         }
 
-        private IStorePlayRequests storePlayRequests(IServiceProvider arg)
+        private IStorePlayInvitations storePlayRequests(IServiceProvider arg)
         {
             throw new NotImplementedException();
         }

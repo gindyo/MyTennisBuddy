@@ -1,8 +1,8 @@
 ﻿using System;
 
-namespace Core.PlayRequests
+namespace Core.PlayInvitations
 {
-    public interface IStorePlayRequests
+    public interface IStorePlayInvitations
     {
         Guid Create();
         Guid Update();

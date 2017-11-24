@@ -1,24 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
-using Core.PlayRequests;
+using Core.PlayInvitations;
 
 namespace Repository.Providers
 {
-    internal class PlayRequestsProvider : IProvidePlayRequests
+    internal class PlayInvitationsProvider : IProvidePlayInvitations
     {
         private readonly MtbDbContext _mtbDbContext;
 
-        internal PlayRequestsProvider(MtbDbContext mtbDbContext)
+        internal PlayInvitationsProvider(MtbDbContext mtbDbContext)
         {
             _mtbDbContext = mtbDbContext;
         }
 
-        public IEnumerable<PlayRequest> Outbound()
+        public IEnumerable<PlayInvitation> Outbound()
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<PlayRequest> Inbound()
+        public IEnumerable<PlayInvitation> Inbound()
         {
             throw new NotImplementedException();
         }

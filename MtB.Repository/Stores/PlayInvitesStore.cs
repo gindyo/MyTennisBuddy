@@ -1,9 +1,9 @@
 ﻿using System;
-using Core.PlayRequests;
+using Core.PlayInvitations;
 
 namespace Repository.Providers
 {
-    public class PlayRequestsStore : IStorePlayRequests
+    public class PlayInvitationsStore : IStorePlayInvitations
     {
         public Guid Create()
         {

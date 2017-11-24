@@ -1,0 +1,19 @@
+<h1>Buddies</h1>
+<p *ngIf="!invitations"><em>Loading...</em></p>
+
+<table class='table' *ngIf="invitations">
+        <tr>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+        <tr *ngFor="let invitation of invitations">
+            <td ><input *ngIf="invitation.isNew" [(ngModel)]="invitation.date" /><span *ngIf="!invitation.isNew">{{ invitation.date }}</span></td>
+            <td><input *ngIf="invitation.isNew" [(ngModel)]="invitation.time" /><span *ngIf="!invitation.isNew">{{ invitation.time }}</span></td>
+            <td><input *ngIf="invitation.isNew" [(ngModel)]="invitation.status" /><span *ngIf="!invitation.isNew">{{ invitation.status }}</span></td>
+            <td><input type="button" *ngIf="invitation.isNew" (click)="saveinvitation(invitation)"  value="Save" id="save-button"></td>
+        </tr>
+</table>
+
+<button class="btn" (click)="addinvitation()">Add invitation</button>

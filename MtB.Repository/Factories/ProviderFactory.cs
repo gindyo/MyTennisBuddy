@@ -1,7 +1,7 @@
 ﻿using System;
 using Core.BuddyList.Plugins;
 using Core.Communication.Plugins;
-using Core.PlayRequests;
+using Core.PlayInvitations;
 using Repository.Providers;
 
 namespace Repository.Factories
@@ -14,9 +14,9 @@ namespace Repository.Factories
         {
             return new BuddiesProvider(MtbDbContext, userId);
         }
-        public static IProvidePlayRequests BuildPlayrequestsProvider(Guid userId)
+        public static IProvidePlayInvitations BuildPlayrequestsProvider(Guid userId)
         {
-            return new PlayRequestsProvider(MtbDbContext);
+            return new PlayInvitationsProvider(MtbDbContext);
         }
         public static IProvideContacts BuildContactsProvider(Guid userId)
         {
