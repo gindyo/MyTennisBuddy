@@ -24,7 +24,7 @@ namespace Tests.EndToEnd.WebControllersTests
             BuddyStore bstore = new BuddyStore(new MtbDbContext(), userId);
             ListBuddies listBuddies = new ListBuddies(provider);
             IAddBuddy addBuddy = new AddBuddy(bstore, provider);
-            var controller = new BuddiesListController(listBuddies, addBuddy);
+            var controller = new BuddyListController(listBuddies, addBuddy);
             var buddiesJson = controller.Buddies();
             Assert.IsNotNull((buddiesJson.Value as IEnumerable<WebBuddy>).ToList().Single(b=> friend.ExternalId == b.externalId));
         }
@@ -37,7 +37,7 @@ namespace Tests.EndToEnd.WebControllersTests
             BuddyStore bstore = new BuddyStore(dbContext, userId);
             ListBuddies listBuddies = new ListBuddies(provider);
             IAddBuddy addBuddy = new AddBuddy(bstore, provider);
-            var controller = new BuddiesListController(listBuddies, addBuddy);
+            var controller = new BuddyListController(listBuddies, addBuddy);
             WebBuddy buddy = new WebBuddy() { cellPhoneNumber = "12345", email = "email@bla.com", firstName = "dimitar"};
             var buddiesJson = controller.New(buddy);
             var buddies = controller.Buddies().Value as IEnumerable<WebBuddy>;

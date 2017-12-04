@@ -7,13 +7,13 @@ using Web.WebModels;
 
 namespace Web.Controllers
 {
-    [Route("api/Buddies")]
-    public  class BuddiesListController : Controller
+    [Route("api/BuddyList")]
+    public  class BuddyListController : Controller
     {
         public IListBuddies ListBuddies { get; }
         public IAddBuddy AddBuddy { get; }
 
-        public BuddiesListController(IListBuddies listBuddies, IAddBuddy addBuddy)
+        public BuddyListController(IListBuddies listBuddies, IAddBuddy addBuddy)
         {
             ListBuddies = listBuddies;
             AddBuddy = addBuddy;
@@ -45,7 +45,7 @@ namespace Web.Controllers
             return new CreatedResult("", null);
         }
 
-        [HttpPost("")]
+        [HttpPut]
         public ActionResult Update([FromBody]WebBuddy buddy)
         {
             AddBuddy.Update(buddy);

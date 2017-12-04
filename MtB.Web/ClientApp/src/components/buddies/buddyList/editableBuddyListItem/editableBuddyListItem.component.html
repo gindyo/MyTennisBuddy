@@ -1,0 +1,14 @@
+﻿<div class="row">
+    <div class="col-md-3">
+        <input [(ngModel)]="buddy.firstName"/>
+    </div>
+    <div class="col-md-3">
+        <input [(ngModel)]="buddy.cellPhoneNumber"/>
+    </div>
+    <div class="col-md-3">
+        <input [(ngModel)]="buddy.email"/>
+    </div>    
+
+    <div (click)="saveBuddy(buddy)" class="btn glyphicon glyphicon-floppy-save" title="save"></div>
+    <div (click)="cancel(buddy)"class="btn  glyphicon glyphicon-remove" title="cancel" ></div>
+</div>

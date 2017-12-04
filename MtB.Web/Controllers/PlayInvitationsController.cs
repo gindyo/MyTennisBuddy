@@ -1,6 +1,8 @@
 using System;
+using System.Linq;
 using Core.PlayInvitations;
 using Microsoft.AspNetCore.Mvc;
+using Web.WebModels;
 
 namespace Web.Controllers
 {
@@ -20,11 +22,12 @@ namespace Web.Controllers
         [HttpGet("")]
         public JsonResult All()
         {
-            return new JsonResult(_playInvitationsProvider.Inbound());
+            var invitatiots = _playInvitationsProvider.Inbound().Select(i => new WebPlayInvitation(i));
+            return new JsonResult(invitatiots);
         }
 
         [HttpPost("")]
-        public JsonResult Create([FromBody] PlayInvitation invitation)
+        public JsonResult Create([FromBody] WebPlayInvitation invitation)
         {
             return new JsonResult(BaseAddress + _playInvitationsStore.Create(invitation));
         }

@@ -1,0 +1,27 @@
+<h1>Buddies</h1>
+<p *ngIf="!buddies"><em>Loading...</em></p>
+<div class="panel"><div class="row">
+        <h4 class="col-md-3">Name</h4>
+        <h4 class="col-md-3">Phone</h4>
+        <h4 class="col-md-3">Email</h4>
+    </div>
+
+    <div *ngFor="let buddy of buddies">
+        <buddyListItem
+            *ngIf="!buddy.isEditable"
+            [buddy]="buddy"
+            (editRequested)="onEditRequested($event)"
+            (removeRequested) ="onRemoveRequested($event)">
+        </buddyListItem> 
+
+        <editableBuddyListItem
+            *ngIf="buddy.isEditable" [buddy]="buddy"
+            (cancelEdit)="onCancelEdit($event)"
+            (buddyChanged) ="onBuddyChanged($event)">
+            
+        </editableBuddyListItem>
+    </div>
+</div>
+
+
+<button class="btn" (click)="addBuddy()"><span class="glyphicon glyphicon-plus-sign"></span> Add Buddy</button>

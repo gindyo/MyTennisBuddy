@@ -10,7 +10,7 @@ namespace Core.BuddyList.Entities
         {
             ExternalId = externalId;
         }
-        public Guid ExternalId { get; }
+        public Guid ExternalId { get; set; }
         public Name Name { get; set; }
         public ContactInfo ContactInfo { get; set; }
         public int Position { get; set; }

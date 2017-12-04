@@ -1,0 +1,19 @@
+<h1>Play Invitations</h1>
+<p *ngIf="!playInvitations"><em>Loading...</em></p>
+    <div *ngFor="let invitation of playInvitations">
+        <readOnlyPlayInvitationListItem
+            *ngIf="!invitation.isEditable"
+            [playInvitation]="invitation"
+            (editRequested)="onEditRequested($event)"
+            (removeRequested) ="onRemoveRequested($event)">
+        </readOnlyPlayInvitationListItem> 
+
+        <editablePlayInvitationListItem
+            *ngIf="invitation.isEditable" 
+            [playInvitation]="invitation"
+            (cancelEdit)="onCancelEdit($event)"
+            (playInvitationChanged) ="onPlayInvitationChanged($event)">
+            
+        </editablePlayInvitationListItem>
+    </div>
+<button class="btn" (click)="createPlayInvitation()">Add invitation</button>

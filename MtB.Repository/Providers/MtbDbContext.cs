@@ -9,6 +9,12 @@ namespace Repository.Providers
 {
     public class MtbDbContext : DbContext
     {
+        public MtbDbContext()
+        {
+            CommunicationCapabilities = new List<CommunicationCapabilityRecord>();
+            PlayInvitations = new List<PlayInvitationRecord>();
+            Seed();
+        }
         public List<BuddyRecord> BuddyRecords { get; set; }
         public List<CommunicationCapabilityRecord> CommunicationCapabilities { get; set; }
         public List<PlayInvitationRecord> PlayInvitations { get; set; }
@@ -24,7 +30,7 @@ namespace Repository.Providers
 
         private void Seed()
         {
-            BuddyRecords.Add(new BuddyRecord()
+            BuddyRecords = new List<BuddyRecord>{new BuddyRecord()
             {
                 ExternalId =  Guid.NewGuid(),
                 FirstName =  "Dimitar",
@@ -33,21 +39,25 @@ namespace Repository.Providers
                 Email = "gindio@gmail.com",
                 CellPhoneNmuber = "1234554",
                 ComunicationCapabilities = new List<CommunicationCapabilityRecord> { new CommunicationCapabilityRecord(){Type = typeof(ReceiveEmailCapability).FullName}},
-                UserId = new Guid("00000000-0000-0000-00000000"),
+                UserId = new Guid("00000000-0000-0000-0000-000000000000"),
                 Id = 1
-            });
-            BuddyRecords.Add(new BuddyRecord()
+            },new BuddyRecord()
             {
                 ExternalId =  Guid.NewGuid(),
-                FirstName =  "John",
-                LastName =  "Doe",
+                FirstName =  "Dimitar",
+                LastName =  "Ginev",
                 Position = 1,
-                Email = "doe@gmail.com",
-                CellPhoneNmuber = "5555555",
+                Email = "gindio@gmail.com",
+                CellPhoneNmuber = "1234554",
                 ComunicationCapabilities = new List<CommunicationCapabilityRecord> { new CommunicationCapabilityRecord(){Type = typeof(ReceiveEmailCapability).FullName}},
-                UserId = new Guid("00000000-0000-0000-00000000"),
+                UserId = new Guid("00000000-0000-0000-0000-000000000000"),
                 Id = 1
-            });
+            }};
+        }
+
+        public override int SaveChanges()
+        {
+            return 1;
         }
     }
 }

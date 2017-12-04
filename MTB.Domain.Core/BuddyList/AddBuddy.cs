@@ -24,7 +24,7 @@ namespace Core.BuddyList
 
         public void Update(Buddy buddy)
         {
-
+            _storeBuddies.Update(buddy);
         }
     }
 }

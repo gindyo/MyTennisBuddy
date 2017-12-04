@@ -1,0 +1,13 @@
+﻿<div class="row">
+    <div class="col-md-3">
+        {{playInvitation.date}}
+    </div>
+    <div class="col-md-3">
+        {{playInvitation.time}}
+    </div>
+    <div class="col-md-3">
+        {{playInvitation.status}}
+    </div>
+    <div class="btn glyphicon glyphicon-edit" (click)="edit(pi)" title="edit"></div>
+    <div class="btn glyphicon glyphicon-trash" (click)="remove(pi)" title="delete"></div>
+</div>

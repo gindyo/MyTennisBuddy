@@ -12,12 +12,7 @@ namespace Repository.Entities
         public BuddyRecord() { }
         public BuddyRecord(Buddy buddy)
         {
-            FirstName = buddy.Name.First;
-            LastName = buddy.Name.Last;
-            Email = buddy.ContactInfo.Email;
-            CellPhoneNmuber = buddy.ContactInfo.CellPhoneNumber;
-            Position = buddy.Position;
-            ExternalId = buddy.ExternalId;
+            Update(buddy);
         }
 
         public long Id { get; set; }
@@ -49,6 +44,16 @@ namespace Repository.Entities
                 ExternalId = ExternalId,
                 ComunicationCapabilities =  ComunicationCapabilities?.Select(c=>c.ToICapability()).ToList()
             };
+        }
+
+        public void Update(Buddy buddy)
+        {
+            FirstName = buddy.Name.First;
+            LastName = buddy.Name.Last;
+            Email = buddy.ContactInfo.Email;
+            CellPhoneNmuber = buddy.ContactInfo.CellPhoneNumber;
+            Position = buddy.Position;
+            ExternalId = buddy.ExternalId;
         }
     }
 }

@@ -1,0 +1,13 @@
+﻿<div class="row">
+    <div class="col-md-3">
+        {{buddy.firstName}}
+    </div>
+    <div class="col-md-3">
+        {{buddy.cellPhoneNumber}}
+    </div>
+    <div class="col-md-3">
+        {{buddy.email}}
+    </div>
+    <div class="btn glyphicon glyphicon-edit" (click)="edit(buddy)" title="edit"></div>
+    <div class="btn glyphicon glyphicon-trash" (click)="remove(buddy)" title="delete"></div>
+</div>

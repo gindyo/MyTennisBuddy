@@ -18,7 +18,10 @@
 
   <ItemGroup>
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
+    <Compile Remove="ClientApp\app\**" />
     <Content Remove="ClientApp\**" />
+    <EmbeddedResource Remove="ClientApp\app\**" />
+    <None Remove="ClientApp\app\**" />
   </ItemGroup>
 
   <ItemGroup>

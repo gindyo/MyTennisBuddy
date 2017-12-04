@@ -4,14 +4,13 @@ namespace Core.PlayInvitations
 {
     public class PlayInvitation
     {
-        public PlayInvitation(Guid from, DateTime when )
+        public PlayInvitation( DateTime when )
         {
-            Status =  Invitation.New();
-            From = from;
+            Status =  InvitationStatus.New();
             When = when;
         }
 
-        public Invitation Status { get; set; }
+        public InvitationStatus Status { get; set; }
         public Guid From { get; set; }
         public DateTime When { get; set; }
         public DateTime Created { get; set; }

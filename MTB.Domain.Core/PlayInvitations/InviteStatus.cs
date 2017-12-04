@@ -1,22 +1,35 @@
-﻿namespace Core.PlayInvitations
+﻿using System;
+
+namespace Core.PlayInvitations
 {
-    public abstract class Invitation
+    public abstract class InvitationStatus
     {
-        public static  Invitation New()
+
+        public static InvitationStatus Pending()
         {
-            return  new NewInvitation();
+            return  new PendingInvitationStatus();
         }
-        public static Invitation Pending()
+        public static InvitationStatus Accepted()
         {
-            return  new PendingInvitation();
+            return  new AcceptedInvitationStatus();
         }
-        public static Invitation Accepted()
+
+        public static  InvitationStatus New()
         {
-            return  new AcceptedInvitation();
+            return  new NewInvitationStatus();
+        }
+        public static InvitationStatus New(string value)
+        {
+            switch (value)
+            {
+                case "accepted": return Accepted();
+                case "pending": return Pending();
+                default:  return New();
+            }
         }
     }
 
-    public class AcceptedInvitation : Invitation { }
-    public class PendingInvitation : Invitation { }
-    public class NewInvitation : Invitation { }
+    public class AcceptedInvitationStatus : InvitationStatus { }
+    public class PendingInvitationStatus : InvitationStatus { }
+    public class NewInvitationStatus : InvitationStatus { }
 }

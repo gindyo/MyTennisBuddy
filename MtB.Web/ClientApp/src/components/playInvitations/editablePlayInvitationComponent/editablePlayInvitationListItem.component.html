@@ -1,0 +1,10 @@
+﻿<div class="row">
+    <div class="col-md-3">
+        <input [(ngModel)]="playInvitation.date"/>
+    </div>
+    <div class="col-md-3">
+        <input [(ngModel)]="playInvitation.time"/>
+    </div>
+    <div (click)="savePlayInvitation(playInvitation)" class="btn glyphicon glyphicon-floppy-save" title="save"></div>
+    <div (click)="cancel(playInvitation)"class="btn  glyphicon glyphicon-remove" title="cancel" ></div>
+</div>

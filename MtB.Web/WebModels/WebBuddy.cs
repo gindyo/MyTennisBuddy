@@ -10,7 +10,10 @@ namespace Web.WebModels
         internal Buddy _buddy;
         public WebBuddy(Buddy buddy) => _buddy = buddy;
         public WebBuddy() { _buddy = new Buddy(Guid.NewGuid()); }
-        public Guid externalId { get => _buddy.ExternalId; }
+        public Guid externalId {
+            get => _buddy.ExternalId;
+            set => _buddy.ExternalId = value;
+        }
         public string email {
             get => _buddy.ContactInfo.Email;
             set => _buddy.ContactInfo = new ContactInfo(value, _buddy.ContactInfo.CellPhoneNumber); }

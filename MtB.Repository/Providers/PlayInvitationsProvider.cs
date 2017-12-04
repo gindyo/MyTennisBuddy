@@ -1,5 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Core.PlayInvitations;
 
 namespace Repository.Providers
@@ -15,12 +15,12 @@ namespace Repository.Providers
 
         public IEnumerable<PlayInvitation> Outbound()
         {
-            throw new NotImplementedException();
+            return _mtbDbContext.PlayInvitations.Select(p=>(PlayInvitation)p);
         }
 
         public IEnumerable<PlayInvitation> Inbound()
         {
-            return new List<PlayInvitation>();
+            return _mtbDbContext.PlayInvitations.Select(p=>(PlayInvitation)p);
         }
     }
 }
