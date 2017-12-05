@@ -9,9 +9,9 @@ import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { BuddyList } from "./components/buddies/buddyList/buddyList.component";
 import { BuddyListItemComponent} from "./components/buddies/buddyList/buddyListItem/buddyListItem.component";
 import { EditableBuddyListItemComponent } from "./components/buddies/buddyList/editableBuddyListItem/editableBuddyListItem.component";
-import { PlayInvitationComponent } from "./components/playInvitations/playInvitationListComponent/playInvitations.component";
-import { ReadOnlyPlayInvitationListItemComponent } from "./components/playInvitations/readOnlyPlayInivtationComponent/readOnlyPlayInvitationListItem.component";
-import { EditablePlayInvitationListItemComponent } from "./components/playInvitations/editablePlayInvitationComponent/editablePlayInvitationListItem.component";
+import { PlayInvitationComponent } from "./components/playInvitations/list/playInvitations.component";
+import { ReadOnlyPlayInvitationListItemComponent } from "./components/playInvitations/readOnly/readOnlyPlayInvitationListItem.component";
+import { EditablePlayInvitationListItemComponent } from "./components/playInvitations/editable/editablePlayInvitationListItem.component";
 
 @NgModule({
     declarations: [

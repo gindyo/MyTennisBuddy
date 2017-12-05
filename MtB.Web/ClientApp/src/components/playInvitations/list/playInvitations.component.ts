@@ -1,8 +1,8 @@
 import { Component, Inject } from '@angular/core';
 import { Http, Headers, RequestOptions} from '@angular/http';
 import {PlayInvitation} from "../playInvitation.entity";
-import {NewPlayInivitation} from "../editablePlayInvitationComponent/newPlayInvitation.entity";
-import {EditablePlayInvitation} from "../editablePlayInvitationComponent/editablePlayInvitation.entity";
+import {NewPlayInivitation} from "../editable/newPlayInvitation.entity";
+import {EditablePlayInvitation} from "../editable/editablePlayInvitation.entity";
 
 @Component({
     selector: 'playInvitation',

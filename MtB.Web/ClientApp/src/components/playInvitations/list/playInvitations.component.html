@@ -1,5 +1,6 @@
 <h1>Play Invitations</h1>
 <p *ngIf="!playInvitations"><em>Loading...</em></p>
+    <div></div>
     <div *ngFor="let invitation of playInvitations">
         <readOnlyPlayInvitationListItem
             *ngIf="!invitation.isEditable"

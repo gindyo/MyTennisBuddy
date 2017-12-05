@@ -29,7 +29,27 @@ namespace Core.PlayInvitations
         }
     }
 
-    public class AcceptedInvitationStatus : InvitationStatus { }
-    public class PendingInvitationStatus : InvitationStatus { }
-    public class NewInvitationStatus : InvitationStatus { }
+    public class AcceptedInvitationStatus : InvitationStatus
+    {
+        public override string ToString()
+        {
+            return "Accepted";
+        }
+    }
+
+    public class PendingInvitationStatus : InvitationStatus
+    {
+        public override string ToString()
+        {
+            return "Pending";
+        }
+    }
+
+    public class NewInvitationStatus : InvitationStatus
+    {
+        public override string ToString()
+        {
+            return "New";
+        }
+    }
 }
