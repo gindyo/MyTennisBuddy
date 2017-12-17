@@ -1,0 +1,70 @@
+WebBrowser/Angular
+        |
+        |                        WebApi
+        |
+        |------AddNewBuddy-------- |
+        |                          |             IStoreBuddies
+        |                          |
+        |                          |--------------> |
+        |                          |                |
+        |                          |<-----newGuid---|
+        |<-----newGuid-------------|                |
+        |                          |                |
+        |                          |                |
+
+
+WebBrowser/Angular
+        |
+        |                        WebApi
+        |
+        |------CreateInvite------> |
+        |                          |           ICreateInvites
+        |                          |
+        |                          |create invite-> |
+        |                          |                |                  IProvideBuddyList
+        |                          |                |
+        |                          |                |                            |
+        |                          |                |----getBuddyList----------> |
+        |                          |                |                            |
+        |                          |                |                            |
+        |                          |                |<---buddyList---------------|
+        |                          |                |                            
+        |                          |                |                            
+        |                          |                |                            
+        |                          |                |                             IStoreInviteRecords 
+        |                          |                |                                     | 
+        |                          |                |---------------CreateInviteRecord--->|                           
+        |                          |                |                                     | 
+        |                          |                |<--------InviteId--------------------|                           
+        |                          |                |                            
+        |                          |                |                            
+        |                          |                |                            
+        |                          |                |
+        |                          |                |
+        |                          |                |
+        |                          |<-----newGuid---|
+        |<-----newGuid-------------|                |
+        |                          |                |
+        |                          |                |
+
+
+
+
+
+
+                                         IScheduleNotification
+                                                |
+------------ScheduleNotifications-------------->|
+                                                |
+                                                |              INotificationTransmitter
+                                                |                           |
+                                                |----SendNotification------>|
+                                                |                           |
+                                                |                           |
+
+
+
+
+
+
+
